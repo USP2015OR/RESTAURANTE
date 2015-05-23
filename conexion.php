@@ -1,7 +1,7 @@
 <?php
 function conectar(){
-	$servidor ="localhost";
-	$db = "colegio";
+	$servidor ="10.22.36.118";
+	$db = "restaurante";
 	$usuario = "root";
 	$clave="";
 	$cnn = mysql_connect($servidor, $usuario, $clave) or die("Error en la conexion");
