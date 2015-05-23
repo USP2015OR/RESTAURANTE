@@ -55,10 +55,35 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<center><h4>Login</h4></center>
+				<center><h4>INICIO DE SESIÓN</h4></center>
 			</div>
 			<div class="modal-body">
-				:v
+                            <table>
+                            <tr id="espaciolog"><td width="30%"></td><td width="50%"></td><td width="20%"></td></tr>
+                            
+                            <tr><td rowspan="4"><center><img src="imagenes/usuario.png" width="70%"></img></center></td>
+                            <td>
+                            <form id="frm_login" name="frm_login" class="form-vertical">
+                            <table>
+                            <tr>
+                            <td><center><h4><span class="label label-info">Usuario:</span></h4></center></td>
+                            <td><input type="text"  id="txtusuario" onkeypress="Validar();"class="form-control" placeholder="Username" width="70%"></td>
+                            </tr>
+                            <td><center><h4><span class="label label-info">Contraseña:</span></center></h4></td>
+                            <td><input type="password" id="txtclave" onkeypress="Validar2();" class="form-control" placeholder="Contraseña" width="70%"></td>
+                            <tr>
+                            </tr>
+                            </table></form>
+                            </td><td></td></tr>
+                            <tr><td width="50%">
+                            <br>
+                            <center>
+                                <button type="button" onclick=""class="btn btn-success">
+                                Ingresar <span class="glyphicon glyphicon-ok"></span>
+                                </button></center>
+                             </td><td width="20%"></tr>
+                            <tr id="espaciolog"><td width="50%"></td><td width="20%"></tr>
+                            </table>
 			</div>
 			<div calss="modal-footer">
 				
