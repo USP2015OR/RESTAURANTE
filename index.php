@@ -39,7 +39,7 @@
 		<li><a href="#" onclick="" style="cursor:pointer">Platos</a></li>
       </ul>
 	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="" data-toogle="modal" data-target="#login">Iniciar Sesión <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="#" onclick="" data-toggle="modal" data-target="#login">Iniciar Sesión <span class="glyphicon glyphicon-user"></span></a></li>
       </ul>
 	  </div>
 <!--</nav>-->
