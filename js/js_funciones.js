@@ -8,7 +8,7 @@ function login(){
 		},
 		function (data){
 			if(data=="Bienvenido"){
-				$(location).attr('href','intranet/usuario.php');
+				$(location).attr('href','usuario.php');
 			}else{
 				alert(data);
 			}
