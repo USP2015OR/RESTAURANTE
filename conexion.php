@@ -1,6 +1,6 @@
 <?php
 function conectar(){
-	$servidor ="10.22.36.118";
+	$servidor ="192.168.1.40";
 	$db = "restaurante";
 	$usuario = "root";
 	$clave="";
@@ -8,4 +8,3 @@ function conectar(){
 	mysql_select_db($db, $cnn);
 	return $cnn;
 }
-?>
