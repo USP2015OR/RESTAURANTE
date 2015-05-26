@@ -1,4 +1,8 @@
 <!DOCTYPE HTML>
+<?php
+session_start();
+$_SESSION['intentos']=0;
+?>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -6,6 +10,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.theme.min.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/js_funciones.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -73,6 +78,7 @@
 				<center><h5>INICIO DE SESIÓN</h5></center>
 			</div>
 			<div class="modal-body">
+                            <form id="frm_login" name="frm_login" class="form-vertical">
                             <table>
                             <tr id="espaciolog"><td width="30%"></td><td width="50%"></td><td width="20%"></td></tr>
                             
@@ -81,11 +87,11 @@
                             <form id="frm_login" name="frm_login" class="form-vertical">
                             <table>
                             <tr>
-                            <td><center><h4><span class="label label-info">Usuario:</span></h4></center></td>
-                            <td><input type="text"  id="txtusuario" onkeypress="Validar();"class="form-control" placeholder="Username" width="70%"></td>
+                            <td><h4><span>Usuario:</span></h4></td>
+                            <td><input type="text"  id="txtusuario" class="form-control" placeholder="Username" width="70%"></td>
                             </tr>
-                            <td><center><h4><span class="label label-info">Contraseña:</span></center></h4></td>
-                            <td><input type="password" id="txtclave" onkeypress="Validar2();" class="form-control" placeholder="Contraseña" width="70%"></td>
+                            <td><h4><span class="label label-info">Contraseña:</span></h4></td>
+                            <td><input type="password" id="txtclave" class="form-control" placeholder="Contraseña" width="70%"></td>
                             <tr>
                             </tr>
                             </table></form>
@@ -93,12 +99,14 @@
                             <tr><td width="50%">
                             <br>
                             <center>
-                                <button type="button" onclick=""class="btn btn-success">
-                                Ingresar <span class="glyphicon glyphicon-ok"></span>
-                                </button></center>
-                             </td><td width="20%"></tr>
+                                <button type="button" onclick="login();" class="btn btn-success">Ingresar</button><br>
+                                <a href="restaurar.php">Recuperar cuenta</a>
+                            </center>
+                             </td><td width="20%">
+                             </tr>
                             <tr id="espaciolog"><td width="50%"></td><td width="20%"></tr>
                             </table>
+                            </form>
 			</div>
 			<div class="modal-footer">
 				<center><h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>

@@ -1,6 +1,6 @@
 <?php
 function conectar(){
-	$servidor ="192.168.1.40";
+	$servidor ="localhost";
 	$db = "restaurante";
 	$usuario = "root";
 	$clave="";
