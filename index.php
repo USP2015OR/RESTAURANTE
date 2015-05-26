@@ -19,31 +19,46 @@
 
 <div class="panel panel-default">
   <div class="navbar navbar-inverse" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a class="navbar-brand" href="#" onclick="" style="cursor:pointer">Inicio</a></li>
-		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nosotros <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" onclick="" style="cursor:pointer">Reseña Histórica</a></li>
-			<li><a href="#" onclick="" style="cursor:pointer">Organización</a></li>
-            <li><a href="#" onclick="" style="cursor:pointer">Misión</a></li>
-			<li><a href="#" onclick="" style="cursor:pointer">Visión</a></li>
-            <!--<li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>-->
-          </ul>
-        </li>
-        <li><a href="#" onclick="" style="cursor:pointer">Instalaciones</a></li>
-		<li><a href="#" onclick="" style="cursor:pointer">Platos</a></li>
-      </ul>
-	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="" data-toggle="modal" data-target="#login">Iniciar Sesión <span class="glyphicon glyphicon-user"></span></a></li>
-      </ul>
-	  </div>
-<!--</nav>-->
-  </div>
+<div class="container-fluid">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span> 
+			<span class="icon-bar"></span> 
+		</button>
+		<a class="navbar-brand" href="index.html">Inicio</a>
+	</div>
+	
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">			
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Nosotros <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reseña Histórica</a></li>
+                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Organización</a></li>
+					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Vision</a></li>              
+					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Mision</a></li> 	
+					
+						
+				</ul>
+			</li>			
+			
+			<li class="dropdown"> 
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Productos <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Instalaciones</a></li>              
+					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Platos</a></li> 
+				</ul>
+			</li>
+			
+		</ul>
+				<ul class="nav navbar-nav navbar-right">
+			<li><a href="#" onclick="" data-toggle="modal" data-target="#login">Iniciar Sesión <span class="glyphicon glyphicon-user"></span></a></li>
+				</ul>
+	</div>
+</div>
+</div>
   <div class="panel-body">
 	<div id="contenido">
 </div>
@@ -55,13 +70,13 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<center><h4>INICIO DE SESIÓN</h4></center>
+				<center><h5>INICIO DE SESIÓN</h5></center>
 			</div>
 			<div class="modal-body">
                             <table>
                             <tr id="espaciolog"><td width="30%"></td><td width="50%"></td><td width="20%"></td></tr>
                             
-                            <tr><td rowspan="4"><center><img src="imagenes/usuario.png" width="70%"></img></center></td>
+                            <tr><td rowspan="3"><center><img src="imagenes/usuario.png" width="70%"></img></center></td>
                             <td>
                             <form id="frm_login" name="frm_login" class="form-vertical">
                             <table>
@@ -85,8 +100,8 @@
                             <tr id="espaciolog"><td width="50%"></td><td width="20%"></tr>
                             </table>
 			</div>
-			<div calss="modal-footer">
-				
+			<div class="modal-footer">
+				<center><h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
 			</div>
 		</div>
 	</div>
