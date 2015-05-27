@@ -15,4 +15,27 @@ function login(){
 		}
 	);
 }
+function prg_sec(){
+	var usuario = document.frm_re.txtusuario;
+	//alert(usuario.value);
+	$.post('restaurar.php', 
+		{	usuario	: usuario.value		
+		},
+		function (data){
+			if(data){
+				cargarformulario('recup','restaurar.php?usuario='+usuario.value);
+			}
+		}
+	);
+}
+function cargarformulario(div,formulario)
+{
+	$("#"+div).load(formulario);
+	$( "#contenido" ).hide();
+	if ( $( "#contenido" ).is( ":hidden" ) ) {
+    $( "#contenido" ).slideDown( "slow" );
+  } //else {
+    //$( "#contenido" ).hide();
+  //}
+}
 

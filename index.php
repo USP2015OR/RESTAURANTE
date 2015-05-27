@@ -32,7 +32,7 @@ $_SESSION['intentos']=0;
 			<span class="icon-bar"></span> 
 			<span class="icon-bar"></span> 
 		</button>
-		<a class="navbar-brand" href="index.html">Inicio</a>
+		<a class="navbar-brand" href="index.php">Inicio</a>
 	</div>
 	
 	<div class="navbar-collapse collapse">
@@ -48,14 +48,9 @@ $_SESSION['intentos']=0;
 						
 				</ul>
 			</li>			
-			
-			<li class="dropdown"> 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Productos <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Instalaciones</a></li>              
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Platos</a></li> 
-				</ul>
-			</li>
+				
+			<li><a href="">Instalaciones</a></li>              
+			<li><a href="">Platos</a></li> 
 			
 		</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -87,20 +82,20 @@ $_SESSION['intentos']=0;
                             <form id="frm_login" name="frm_login" class="form-vertical">
                             <table>
                             <tr>
-                            <td><h4><span>Usuario:</span></h4></td>
+                            <td><h4>Usuario:</h4></td>
                             <td><input type="text"  id="txtusuario" class="form-control" placeholder="Username" width="70%"></td>
                             </tr>
-                            <td><h4><span class="label label-info">Contraseña:</span></h4></td>
+                            <td><h4>Contraseña:</h4></td>
                             <td><input type="password" id="txtclave" class="form-control" placeholder="Contraseña" width="70%"></td>
                             <tr>
                             </tr>
-                            </table></form>
+                            </table>
                             </td><td></td></tr>
                             <tr><td width="50%">
                             <br>
                             <center>
                                 <button type="button" onclick="login();" class="btn btn-success">Ingresar</button><br>
-                                <a href="restaurar.php">Recuperar cuenta</a>
+                                <a href="#"data-toggle="modal" data-target="#recuperar" data-dismiss="modal">Recuperar cuenta</a>
                             </center>
                              </td><td width="20%">
                              </tr>
@@ -113,6 +108,53 @@ $_SESSION['intentos']=0;
 			</div>
 		</div>
 	</div>
+</div>
+<div class="modal fade" id="recuperar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<center><h5>RECUPERAR CUENTA</h5></center>
+			</div>
+                    <div class="modal-body">
+                        <form id="frm_re" name="frm_re" class="form-vertical">
+                        <table>
+                            <tr id="espaciolog"><td width="30%"></td><td width="50%"></td><td width="20%"></td></tr>
+                            
+                            <tr><td rowspan="3"></td>
+                            <td>
+                            
+                            <table>
+                            <tr>
+                            <td><h4>Usuario:</h4></td>
+                            <td><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username" width="70%"></td>
+                            </tr>
+                            <td></td>
+                            <td></td>
+                            <tr>
+                            </tr>
+                            </table>
+                            </td><td></td></tr>
+                            <tr><td width="50%">
+                            <br>
+                            <center>
+                                <!--<button type="button" href="#" onclick="cargarformulario('recup','restaurar.php');" style="cursor:pointer" class="btn btn-success">Recuperar</button><br>-->
+                            </center>
+                             </td><td width="20%">
+                             </tr>
+                             <tr id="espaciolog" colspan="2"><td><center>
+                                 <div id="recup" name="recup">
+                                     
+                                 </div>
+                             </center></td></tr>
+                            </table>
+                    </form>
+                    </div>
+			<div class="modal-footer">
+				<center><h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
+			</div>
+		
+	</div>
+</div>
 </div>
 </body>
 </html>
