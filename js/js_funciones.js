@@ -18,12 +18,12 @@ function login(){
 function prg_sec(){
 	var usuario = document.frm_re.txtusuario;
 	//alert(usuario.value);
-	$.post('restaurar.php', 
+	$.post('preguntasec.php', 
 		{	usuario	: usuario.value		
 		},
 		function (data){
 			if(data){
-				cargarformulario('recup','restaurar.php?usuario='+usuario.value);
+				cargarformulario('recup','preguntasec.php?usuario='+usuario.value);
 			}
 		}
 	);
@@ -37,5 +37,22 @@ function cargarformulario(div,formulario)
   } //else {
     //$( "#contenido" ).hide();
   //}
+}
+function validpreg(){
+	var respuesta = document.frm_re.txtrespuesta;
+        var usuario = document.frm_re.txtusuario;
+	//alert(usuario.value);
+	$.post('validpreg_ope.php', 
+		{   respuesta	: respuesta.value,
+                    usuario     : usuario.value
+		},
+		function (data){
+			if(data=="Bienvenido"){
+				$(location).attr('href','restaurarpass.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
 }
 

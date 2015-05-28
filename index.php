@@ -117,37 +117,25 @@ $_SESSION['intentos']=0;
 			</div>
                     <div class="modal-body">
                         <form id="frm_re" name="frm_re" class="form-vertical">
-                        <table>
-                            <tr id="espaciolog"><td width="30%"></td><td width="50%"></td><td width="20%"></td></tr>
-                            
-                            <tr><td rowspan="3"></td>
-                            <td>
-                            
-                            <table>
-                            <tr>
-                            <td><h4>Usuario:</h4></td>
-                            <td><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username" width="70%"></td>
-                            </tr>
-                            <td></td>
-                            <td></td>
-                            <tr>
-                            </tr>
-                            </table>
-                            </td><td></td></tr>
-                            <tr><td width="50%">
-                            <br>
                             <center>
-                                <!--<button type="button" href="#" onclick="cargarformulario('recup','restaurar.php');" style="cursor:pointer" class="btn btn-success">Recuperar</button><br>-->
-                            </center>
-                             </td><td width="20%">
-                             </tr>
-                             <tr id="espaciolog" colspan="2"><td><center>
+                        <table>
+                            <tr><td width="20%"></td>
+                            <td width="60%"><center><h4>Usuario</h4><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username" width="100%"></center></td>
+                            <td width="20%"></td>
+                            </tr>
+                             <tr id="espaciolog">
+                             <td width="20%"></td>
+                             <td width="60%">
+                             <center>
                                  <div id="recup" name="recup">
                                      
                                  </div>
-                             </center></td></tr>
-                            </table>
-                    </form>
+                             </center>
+                             </td>
+                             <td width="20%"></td>
+                             </tr>
+                        </table></center>
+                        </form>
                     </div>
 			<div class="modal-footer">
 				<center><h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>

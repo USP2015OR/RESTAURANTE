@@ -9,12 +9,11 @@ $n=is_resource($rs)?mysql_num_rows($rs):0;
 if($n>0)
     {
 	$row=mysql_fetch_array($rs); ?>
-        <form id="frm_login" name="frm_preg" class="form-vertical">
             <center>
                 <h4><?php echo "".$row[0]; ?></h4>
-                <input type="text"  id="txusuario" class="form-control" placeholder="Respuesta" width="70%">
+                <input type="text"  id="txtrespuesta" class="form-control" placeholder="Respuesta" width="70%"><br>
+                <button type="button" onclick="validpreg();" class="btn btn-success">Ingresar</button>
             </center>
-        </form>
         
 <?php    }
 ?>
