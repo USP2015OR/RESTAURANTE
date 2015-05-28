@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <?php
 session_start();
+session_destroy();
+session_start();
 $_SESSION['intentos']=0;
 ?>
 <html>
@@ -83,10 +85,10 @@ $_SESSION['intentos']=0;
                             <table>
                             <tr>
                             <td><h4>Usuario:</h4></td>
-                            <td><input type="text"  id="txtusuario" class="form-control" placeholder="Username" width="70%"></td>
+                            <td><input type="text"  id="txtusuario" class="form-control" placeholder="Username"></td>
                             </tr>
                             <td><h4>Contraseña:</h4></td>
-                            <td><input type="password" id="txtclave" class="form-control" placeholder="Contraseña" width="70%"></td>
+                            <td><input type="password" id="txtclave" class="form-control" placeholder="Contraseña"></td>
                             <tr>
                             </tr>
                             </table>
@@ -95,7 +97,7 @@ $_SESSION['intentos']=0;
                             <br>
                             <center>
                                 <button type="button" onclick="login();" class="btn btn-success">Ingresar</button><br>
-                                <a href="#"data-toggle="modal" data-target="#recuperar" data-dismiss="modal">Recuperar cuenta</a>
+                                <a href="#" data-toggle="modal" data-target="#recuperar" data-dismiss="modal">Recuperar cuenta</a>
                             </center>
                              </td><td width="20%">
                              </tr>
@@ -120,7 +122,7 @@ $_SESSION['intentos']=0;
                             <center>
                         <table>
                             <tr><td width="20%"></td>
-                            <td width="60%"><center><h4>Usuario</h4><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username" width="100%"></center></td>
+                            <td width="60%"><center><h4>Usuario</h4><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username"></center></td>
                             <td width="20%"></td>
                             </tr>
                              <tr id="espaciolog">
@@ -138,7 +140,7 @@ $_SESSION['intentos']=0;
                         </form>
                     </div>
 			<div class="modal-footer">
-				<center><h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
+				<center> <h7> SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
 			</div>
 		
 	</div>

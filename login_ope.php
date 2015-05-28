@@ -1,6 +1,5 @@
 <?php
 	session_start();
-        //$_SESSION['intentos']=0;
 	require_once("conexion.php");
 	$cnn=conectar();
 	$usuario=$_POST['usuario'];
