@@ -1,7 +1,7 @@
 function login(){
 	var usuario = document.frm_login.txtusuario;
 	var clave = document.frm_login.txtclave;
-	alert(usuario.value+" "+clave.value);
+	//alert(usuario.value+" "+clave.value);
 	$.post('login_ope.php', 
 		{	usuario		: usuario.value,		
 			clave 		: clave.value			
@@ -49,7 +49,7 @@ function validpreg(){
 		function (data){
 			if(data=="correcto"){
                             alert("Respuesta correcta, reestablesca su contraseña");
-                            $(location).attr('href','prueba.php');
+                            $(location).attr('href','restaurarpass.php');
 			}else{
 				alert("Respuesta incorrecta");
 			}
