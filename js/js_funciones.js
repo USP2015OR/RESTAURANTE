@@ -49,7 +49,7 @@ function validpreg(){
 		function (data){
 			if(data=="correcto"){
                             alert("Respuesta correcta, reestablesca su contraseña");
-                            $(location).attr('href','restaurarpass.php');
+                            $(location).attr('href','prueba.php');
 			}else{
 				alert("Respuesta incorrecta");
 			}

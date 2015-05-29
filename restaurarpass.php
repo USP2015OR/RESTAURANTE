@@ -21,14 +21,14 @@ $id=$_SESSION['id'];
         <div class="panel-heading"><center><h5>REESTABLECER CONTRASEÑA</h5></center></div>
         <div class="panel-body">
             <center>
-                <form id="frm_resta" name="frm_resta" class="form-vertical">
+                <form id="frm_resta" name="frm_resta" class="form-vertical" method="post" action="restaurarpass_ope.php.php">
                 <table>
                     <tr>
                     <td>
                         <h4>Contraseña antigua:</h4>
                     </td>
                     <td>
-                        <input type="text"  id="txtpassantigua" class="form-control" onkeypress="" placeholder="Contraseña Antigua">
+                        <input type="text"  name="txtpassantigua" class="form-control" onkeypress="" placeholder="Contraseña Antigua">
                     </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@ $id=$_SESSION['id'];
                         <h4>Nueva contraseña:</h4>
                     </td>
                     <td>
-                        <input type="text"  id="txtpassnueva1" class="form-control" onkeypress="" placeholder="Nueva Contraseña">
+                        <input type="text"  name="txtpassnueva1" class="form-control" onkeypress="" placeholder="Nueva Contraseña">
                     </td>
                     </tr>
                     <tr>
@@ -44,13 +44,13 @@ $id=$_SESSION['id'];
                         <h4>Repetir contraseña:</h4>
                     </td>
                     <td>
-                        <input type="text"  id="txtpassnueva2" class="form-control" onkeypress="" placeholder="Nueva Contraseña">
+                        <input type="text"  name="txtpassnueva2" class="form-control" onkeypress="" placeholder="Nueva Contraseña">
                     </td>
                     </tr>
                     <tr>
                     <td colspan="2">
                         <center>
-                            <button type="button" onclick="upcontrasena(<?php echo $_SESSION['id']; ?>);" class="btn btn-success">Reestablecer</button>
+                            <button type="submit" onclick="upcontrasena(<?php echo $_SESSION['id']; ?>);" class="btn btn-success">Reestablecer</button>
                         </center>
                     </td>
                     </tr>
