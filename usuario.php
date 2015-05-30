@@ -321,7 +321,7 @@ require_once("conexion.php");
                              
               require_once("conexion.php");
 	      $cnn=conectar();
-                $clavebuscadah=mysql_query("select * from V_USUARIO_DESAPTIVADO",$cnn) or
+                $clavebuscadah=mysql_query("select * from V_USUARIO",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 while($row = mysql_fetch_array($clavebuscadah))
                 {?>

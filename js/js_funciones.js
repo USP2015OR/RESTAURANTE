@@ -83,3 +83,27 @@ function validpreg(){
 	);
 }
 
+function registro(){
+        var usuario = document.frm_creausuario.txtusuario;
+	var clave = document.frm_creausuario.txtclave;
+        var pregunta = document.frm_creausuario.txtpregunta;
+        var respuesta = document.frm_creausuario.txtrespuesta;
+        var empleado= document.frm_creausuario.productoss;
+	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
+	$.post('reg_usuario.php', 
+		{	usuario		: usuario.value,		
+			clave 		: clave.value,
+                        pregunta        : pregunta.value,
+                        respuesta       : respuesta.value,
+                        empleado        : empleado.value
+		},
+		function (data){
+			if(data=="SU REGISTRO FUE REALIZADO CORRECTAMENTE"){
+				$(location).attr('href','usuario.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+
