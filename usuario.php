@@ -127,7 +127,7 @@ require_once("conexion.php");
 			<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nombre']; ?> <span class="glyphicon glyphicon-user"></span></a>
                             <ul class="dropdown-menu">					
-                                <li><a href="#" style="cursor:pointer">Perfil</a></li>	             
+                                <li><a href="#" onclick="cargarformulario('contenido','perfilusu.php');" style="cursor:pointer">Perfil</a></li>	             
                                 <li><a href="salir.php" style="cursor:pointer">Cerra Sesión</a></li>
                             </ul>
                         </li>
@@ -136,7 +136,8 @@ require_once("conexion.php");
 </div>
 </div>
   <div class="panel-body">
-	<div id="contenido">
+<div id="contenido">
+            
 </div>
   </div>
 </div>

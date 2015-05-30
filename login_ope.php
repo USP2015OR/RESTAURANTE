@@ -14,6 +14,7 @@
                     {
                         $_SESSION['tipousuario']=$row[3];
                         $_SESSION['nombre']=$row[4];
+                        $_SESSION['id']=$row[5];
                         $_SESSION['usuario']=$usuario;
                         echo "Bienvenido";
                     }
