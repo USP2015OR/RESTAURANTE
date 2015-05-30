@@ -39,7 +39,7 @@ require_once("conexion.php");
 			<span class="icon-bar"></span> 
 			<span class="icon-bar"></span> 
 		</button>
-		<a class="navbar-brand" href="index.php">Inicio</a>
+		<a class="navbar-brand" href="usuario.php">Inicio</a>
 	</div>
 	
 	<div class="navbar-collapse collapse">
@@ -123,9 +123,15 @@ require_once("conexion.php");
                         
 			
 		</ul>
-				<ul class="nav navbar-nav navbar-right">
-			<li><a href="salir.php">Cerrar Sesión <span class="glyphicon glyphicon-user"></span></a></li>
-				</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nombre']; ?> <span class="glyphicon glyphicon-user"></span></a>
+                            <ul class="dropdown-menu">					
+                                <li><a href="#" style="cursor:pointer">Perfil</a></li>	             
+                                <li><a href="salir.php" style="cursor:pointer">Cerra Sesión</a></li>
+                            </ul>
+                        </li>
+		</ul>
 	</div>
 </div>
 </div>

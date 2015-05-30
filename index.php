@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
 <?php
+if (isset($_SESSION['usuario'])){echo "<script language=javascript>
+            location.href='usuario.php';
+	   </script>";}else{
 session_start();
 session_destroy();
 session_start();
@@ -147,4 +150,4 @@ $_SESSION['intentos']=0;
 </div>
 </div>
 </body>
-</html>
+           </html><?php } ?>
