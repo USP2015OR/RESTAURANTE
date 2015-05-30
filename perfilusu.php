@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: text/html; charset=UTF-8'); 
 require_once("conexion.php");
 $cnn=conectar();
 $id=$_SESSION['id'];
@@ -11,12 +12,13 @@ $sql="SELECT concat(p.persona_prinom,' ',p.persona_segnom) as 'nombres'
     FROM `usuario` u
     inner join `empleado` e on u.empleado_id=e.empleado_id
     inner join `persona` p on e.persona_id=p.persona_id
-    where u.uduario_id=1";
+    where u.uduario_id=".$id.";";
 $rs=mysql_query($sql,$cnn) or die("error");
 $row=mysql_fetch_array($rs);
 ?>
 <html>
     <head>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <title>PERFIL</title>
     </head>
     <body>

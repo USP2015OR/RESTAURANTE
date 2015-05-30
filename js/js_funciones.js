@@ -3,7 +3,7 @@ function upcontrasena()
 	var passvieja = document.frm_campass.txtpassantigua;
 	var passnueva1 = document.getElementById("txtpassnueva1");
         var passnueva2 = document.frm_campass.txtpassnueva2;
-        alert(passnueva1 +" "+passnueva2+" ");
+        alert(passnueva1.value +" "+passnueva2.value+" ");
         /*if(passnueva1.value==passnueva2.value)
         {
             $.post('restaurarpass_ope.php', 

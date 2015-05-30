@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <?php
 require_once("conexion.php");
+        header('Content-Type: text/html; charset=UTF-8'); 
 	session_start();
 	if(isset($_SESSION['usuario'])){
 	$cnn = conectar();
