@@ -85,20 +85,19 @@ require_once("conexion.php");
                         </li>
                         <?php } ?>
                         
-                        
                         <?php if($_SESSION['tipousuario'] == '6') {?>
 			<li class="dropdown"> 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros de Menus <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros de Menus</a><b class="caret"></b>
 			</li>
                         <?php } ?>
                         
                         <?php if($_SESSION['tipousuario'] == '1') {?>
                                     <li class="dropdown"> 
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Toma de Pedidos <b class="caret"></b></a>	
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Toma de Pedidos</a>	
                                     </li>
                        <?php } ?>
 
-			<?php if($_SESSION['tipousuario'] == '3') {?>
+			<!--<?php if($_SESSION['tipousuario'] == '3') {?>
                             <li class="dropdown"> 
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
                                     <ul class="dropdown-menu">					
@@ -107,7 +106,7 @@ require_once("conexion.php");
                                             <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Clientes</a></li>
                                     </ul>
                             </li>
-                          <?php } ?> 
+                          <?php } ?> -->
                             
                             
                             <?php if($_SESSION['tipousuario'] == '5') {?>
@@ -120,8 +119,7 @@ require_once("conexion.php");
                                             <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Visualizar los usuario</a></li>
                                     </ul>
                             </li>
-                          <?php } ?> 
-                        
+                          <?php } ?>
 			
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
