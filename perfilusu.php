@@ -12,7 +12,7 @@ $sql="SELECT concat(p.persona_prinom,' ',p.persona_segnom) as 'nombres'
     FROM `usuario` u
     inner join `empleado` e on u.empleado_id=e.empleado_id
     inner join `persona` p on e.persona_id=p.persona_id
-    where u.uduario_id=".$id.";";
+    where u.usuario_id=".$id.";";
 $rs=mysql_query($sql,$cnn) or die("error");
 $row=mysql_fetch_array($rs);
 ?>
