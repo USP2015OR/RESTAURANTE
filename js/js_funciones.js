@@ -1,28 +1,65 @@
-function upcontrasena()
+function uprespuesta(id)
 {
-	var passvieja = document.frm_campass.txtpassantigua;
-	var passnueva1 = document.getElementById("txtpassnueva1");
-        var passnueva2 = document.frm_campass.txtpassnueva2;
-        alert(passnueva1.value +" "+passnueva2.value+" ");
-        /*if(passnueva1.value==passnueva2.value)
+    //alert("sasasas");
+	var passvieja = document.frm_campreg.txtrespuestaa;
+        var passnueva1 = document.frm_campreg.txtrespuestan1;
+        var passnueva2 = document.frm_campreg.txtrespuestan2;
+      //  alert(passnueva1.value +" "+passnueva2.value+" "+id);
+        if(passnueva1.value==passnueva2.value)
         {
-            $.post('restaurarpass_ope.php', 
-                    {	passvieja	: passvieja.value,		
-                        passnueva	: passnueva1.value,
-                        id              : id.value
+            $.post('camres_ope.php', 
+                    {	
+                        resvieja	: passvieja.value,		
+                        resnueva	: passnueva1.value,
+                        id              : id
                     },
                     function (data){
                             if(data=="correcto"){
-                                    $(location).attr('href','index.php');
+                                    alert("Respuesta cambiada correctamente");
+                                    document.frm_campreg.txtrespuestaa.value="";
+                                    document.frm_campreg.txtrespuestan1.value="";
+                                    document.frm_campreg.txtrespuestan2.value="";
                             }else{
-                                    alert("Contraseña actual incorrecta");
+                                    //alert("Contraseña cambiada correctamente");
+                                    alert(data);
                             }
                     }
             );
         }else
         {
             alert("Constraseñas nuevas no coinciden");
-        }*/
+        }
+}
+function upcontrasena(id)
+{
+	var passvieja = document.frm_campass.txtpassantigua;
+	var passnueva1 = document.getElementById("txtpassnueva1");
+        var passnueva2 = document.frm_campass.txtpassnueva2;
+        //alert(passnueva1.value +" "+passnueva2.value+" "+id);
+        if(passnueva1.value==passnueva2.value)
+        {
+            $.post('campass_ope.php', 
+                    {	
+                        passvieja	: passvieja.value,		
+                        passnueva	: passnueva1.value,
+                        id              : id
+                    },
+                    function (data){
+                            if(data=="correcto"){
+                                    alert("Contraseña cambiada correctamente");
+                                    document.frm_campass.txtpassantigua.value="";
+                                    document.frm_campass.txtpassnueva2.value="";
+                                    document.frm_campass.txtpassnueva1.value="";
+                            }else{
+                                    //alert("Contraseña cambiada correctamente");
+                                    alert(data);
+                            }
+                    }
+            );
+        }else
+        {
+            alert("Constraseñas nuevas no coinciden");
+        }
 }
 function login(){
 	var usuario = document.frm_login.txtusuario;

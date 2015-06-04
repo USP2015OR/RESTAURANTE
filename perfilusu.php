@@ -67,7 +67,7 @@ $row=mysql_fetch_array($rs);
                 PREGUNTA SECRETA:
             </td>
             <td>
-                <a href="#"><?php echo $row[4]; ?></a>
+                <a href="#" data-toggle="modal" data-target="#cam_preg"><?php echo $row[4]; ?></a>
             </td>
             </tr>
             <tr>
@@ -116,6 +116,56 @@ $row=mysql_fetch_array($rs);
                                         <tr>
                                         <td colspan="2"><center><br>
                                                 <button type="button" onclick="upcontrasena(<?php echo $id; ?>);" class="btn btn-success">Cambiar</button><br></center>
+                                        </td>
+                                        </tr>
+                                    </table>
+                                    </center>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                    <center> <h7>SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
+                            </div>
+                    </div>
+            </div>
+    </div>
+        
+        <div class="modal fade" id="cam_preg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                    <center><h5>CAMBIAR RESPUESTA</h5></center>
+                            </div>
+                            <div class="modal-body">
+                                <form id="frm_campreg" name="frm_campreg">
+                                    <center>
+                                    <table>
+                                        <tr>
+                                        <td>
+                                            RESPUESTA ACTUAL:
+                                        </td>
+                                        <td>
+                                            <input type="password" id="txtrespuestaa"  name="txtrespuestaa" class="form-control" onkeypress="" placeholder="Respuesta Antigua">
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            RESPUESTA NUEVA:
+                                        </td>
+                                        <td>
+                                            <input type="password"  id="txtrespuestan1" name="txtrespuestan1" class="form-control" onkeypress="" placeholder="Respuesta Nueva">
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>
+                                            RESPUESTA NUEVA:
+                                        </td>
+                                        <td>
+                                            <input type="password"  id="txtrespuestan2" name="txtrespuestan2" class="form-control" onkeypress="" placeholder="Respuesta Nueva">
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td colspan="2"><center><br>
+                                                <button type="button" onclick="uprespuesta(<?php echo $id; ?>);" class="btn btn-success">Cambiar</button><br></center>
                                         </td>
                                         </tr>
                                     </table>
