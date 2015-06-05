@@ -1,3 +1,24 @@
+function registrousuario(){
+        var codigo = document.frm_empleado.codigo;
+	var clave = document.frm_empleado.empleado;
+        alert(clave.value);
+	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
+	$.post('usuario_registrar.php', 
+		{	codigo		: codigo.value,		
+			empleaado	: empleado.value,
+                       // pregunta        : pregunta.value,
+                       // respuesta       : respuesta.value,
+                       // empleado        : empleado.value
+		},
+		function (data){
+			if(data=="SU REGISTRO FUE REALIZADO CORRECTAMENTE"){
+				$(location).attr('href','usuario.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
 function uprespuesta(id)
 {
     //alert("sasasas");
@@ -127,7 +148,7 @@ function registro(){
         var respuesta = document.frm_creausuario.txtrespuesta;
         var empleado= document.frm_creausuario.productoss;
 	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
-	$.post('reg_usuario.php', 
+	$.post('usuario_registrar_ope.php', 
 		{	usuario		: usuario.value,		
 			clave 		: clave.value,
                         pregunta        : pregunta.value,
