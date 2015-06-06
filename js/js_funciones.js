@@ -1,3 +1,31 @@
+function reg_per(){
+	var pnombre = document.frm_regpersona.txtpnombre;
+	var snombre = document.frm_regpersona.txtsnombre;
+        var apaterno = document.frm_regpersona.txtapaterno;
+        var amaterno = document.frm_regpersona.txtamaterno;
+        var dni = document.frm_regpersona.txtdni;
+	alert(pnombre.value+" "+snombre.value+" "+apaterno.value+" "+amaterno.value+" "+dni.value);
+	$.post('reg_persona_ope.php', 
+		{	pnombre		: pnombre.value,		
+			snombre 	: snombre.value,
+                        apaterno        : apaterno.value,
+                        amaterno        : amaterno.value,
+                        dni             : dni.value
+		},
+		function (data){
+			if(data=="correcto"){
+				alert("Persona registrada correctamente");
+                                document.frm_regpersona.txtpnombre.value="";
+                                document.frm_regpersona.txtsnombre.value="";
+                                document.frm_regpersona.txtapaterno.value="";
+                                document.frm_regpersona.txtamaterno.value="";
+                                document.frm_regpersona.txtdni.value="";
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
 function registrousuario(){
         var codigo = document.frm_empleado.codigo;
 	var clave = document.frm_empleado.empleado;
