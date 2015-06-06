@@ -75,7 +75,7 @@ require_once("conexion.php");
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a href="#"  onclick="cargarformulario('contenido','reg_persona.php')" style="cursor:pointer">Registro de Persona</a></li> 
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Trabajadores</a></li>
+                                        <li><a href="#"  onclick="cargarformulario('contenido','reg_empleado.php');" style="cursor:pointer">Registro de Trabajadores</a></li>
 				</ul>
 			</li>
                         <li class="dropdown"> 

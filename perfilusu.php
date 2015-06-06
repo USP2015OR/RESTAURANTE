@@ -35,7 +35,7 @@ $row=mysql_fetch_array($rs);
                 NOMBRES:
             </td>
             <td>
-                <?php echo $row[0]; ?>
+            <?php echo $row[0]; ?>
             </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@ $row=mysql_fetch_array($rs);
                 DIRECCIÓN:
             </td>
             <td>
-                <?php echo $row[2]; ?>
+            <?php echo $row[2]; ?>
             </td>
             </tr>
             <tr>
