@@ -22,7 +22,6 @@ $_SESSION['intentos']=0;
 <body>
 <table class="table" id="cuerpo1">
 <tr>
-<td width="10%" ></td>
 <td id="cuerpo">
 <div >
 <!--CABECERA -->
@@ -70,7 +69,7 @@ $_SESSION['intentos']=0;
 </div>
   </div>
 </div>
-</td><td width="10%"></td></tr>
+</td></tr>
 </table>
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
