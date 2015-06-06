@@ -9,6 +9,7 @@ require_once("conexion.php");
 ?>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>RESTAURANTE</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +25,7 @@ require_once("conexion.php");
 <body>    
 <table class="table" id="cuerpo1">
 <tr>
-<td width="10%" ></td>
+
 <td id="cuerpo">
 <div >
 <!--CABECERA -->
@@ -73,7 +74,7 @@ require_once("conexion.php");
 			<li class="dropdown"> 
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Persona</a></li> 
+					<li><a href="#"  onclick="cargarformulario('contenido','reg_persona.php')" style="cursor:pointer">Registro de Persona</a></li> 
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Trabajadores</a></li>
 				</ul>
 			</li>
@@ -141,7 +142,7 @@ require_once("conexion.php");
 </div>
   </div>
 </div>
-</td><td width="10%"></td></tr>
+</td></tr>
 </table >    
 </body>
 </html>
