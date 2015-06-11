@@ -68,15 +68,15 @@
                                   <div class="modal-body">
 
                                    <form id="frm_categoria" name="frm_categoria" class="form-vertical" >
-                                         <table class="table-striped">
+                                       <table class="table-striped" align="center">
                                             <tr>
                                             <td colspan="3">
                                                 <center><p class="form-title">LISTA DE CATEGORIAS</p><br/></center>
                                                 </td>
                                             </tr>
                                             <tr>
-                                            <th width="15%">Codigo</th>
-                                                <th width="60%"><center>Empleado</center></th>
+                                            <th>Codigo</th>
+                                                <th><center>Categoria</center></th>
                                             </tr>
                                             <style> 
                                             a:hover{text-decoration:none;}

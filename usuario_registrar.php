@@ -1,47 +1,42 @@
-
+<?php
+?>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <title> REGISTRAR USUARIO </title>
     </head>
     <body>
-			<div class="modal-header">
-				<h5>SISTEMA DE PEDIDOS DE COMANDAS</h5>
-			</div>
 <form id="frm_creausuario" name="frm_creausuario" class="form-vertical" >
       <table style="margin: 0 auto;" >
 	<tr>
-		<td colspan="4">
-			<center><p class="form-title">Crear Usuario</p><br/></center>
+		<td colspan="3">
+                    <center><h3><font color="#5858FA"><b>CREACION DE USUARIOS</b></font></h3></center>
 		</td>
 	</tr>
         
 	<tr>
-            <td></td>
-              <td width="30%"><h4><span>Usuario:</span></h4></td>
-                <td width="60%"><input type="text"  id="txtusuario" class="form-control" placeholder="Username"></td>
-        <td></td>
+            <td><h5><label for="txtusuario"><b>Usuario:</b></label></h5></td>
+            <td colspan="2"><input type="text" required="required" id="txtusuario" class="form-control" placeholder="Username"></td>
         </tr>
         
 	<tr>
-             <td></td>
-	    <td width="30%"><h4><span>Clave:</span></h4></td>
-            <td width="60%"><input type="password" id="txtclave" class="form-control input-sm" placeholder="Ingrese su Clave"></td>
-             <td></td>
+        <td><h5><label for='txtclave'><b>Clave:</b></label></h5></td>
+        <td colspan="2"><input type="password" required="required" id="txtclave" class="form-control" placeholder="Ingrese su Clave"></td>
+             
 	</tr>	
         
         <tr>
-             <td></td>    
-            <td><h4><span>Pregunta secreta:</span></h4></td>
-            <td><input type="text" id="txtpregunta" class="form-control input-sm" placeholder="Ingrese su Pregunta Secreta"></td>
-                     <td></td>
+            
+            <td><h5><label for='txtpregunta'><b>Pregunta secreta:</b></label></h5></td>
+            <td colspan="2"><input type="text" id="txtpregunta" required="required" class="form-control" placeholder="Ingrese su Pregunta Secreta"></td>
+                    
 	</tr>
         
         <tr>  
-                <td></td>
-		<td><h4><span>Respuesta:</span></h4></td>
-                <td><input type="text" id="txtrespuesta" class="form-control input-sm" placeholder="Ingrese su Respuesta"></td>	
-                 <td></td>
+             
+	     <td><h5><label for='txtrespuesta'><b>Respuesta:</b></label></h5></td>
+             <td colspan="2"><input type="text" required="required" id="txtrespuesta" class="form-control" placeholder="Ingrese su Respuesta"></td>	
+                
 	</tr>
         <tr hidden>
 		<td><label for='txtPersonaID'>PersonaID:</label></td>
@@ -49,23 +44,19 @@
 	</tr>
         
         <tr>
-             <td></td>	
-            <td><h4><span>Empleado:</span></h4></td>
-            <td><input type="text" id='txtPersona'  maxlength='10' name='txtPersona' class="form-control input-sm" placeholder="Seleccione Empleado" disabled></td>	
+            <td><h5><label for='txtpersona'><b>Empleado:</b></label></h5></td>
+            <td><input type="text" id='txtPersona' required="required"  maxlength='10' name='txtPersona' class="form-control" placeholder="Seleccione Empleado" disabled></td>	
             <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EMPLEADO">Buscar</button></td>
 	</tr>
 	<tr>
-	 <td></td>	
-         <td></td>
-                <td><button type="button" onclick="registro();" class="btn btn-primary">Registrar</button></td>
-         <td></td>	
+		<td colspan="3">
+        <center>
+                 <br><button type="button" onclick="registro();" class="btn btn-success">Registrar</button>
+       	</center>
+            </td>
 	</tr>
 </table>
 </form>
-        			<div class="modal-footer">
-                                    <center> <h5>RESTAURANTE R & O </h5></center>
-			</div>
-        
 <!--BUSCAR EMPLEADO-->
         
  <div class="modal fade" id="EMPLEADO" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
