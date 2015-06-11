@@ -89,7 +89,7 @@ require_once("conexion.php");
                         
                         <?php if($_SESSION['tipousuario'] == '6') {?>
 			<li class="dropdown"> 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros de Menus</a><b class="caret"></b>
+				<a href="#" onclick="cargarformulario('contenido','menu_registrar.php');" style="cursor:pointer"> Registros de Menus</a><b class="caret"></b>
 			</li>
                         <?php } ?>
                         
