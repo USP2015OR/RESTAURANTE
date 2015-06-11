@@ -193,3 +193,26 @@ function registro(){
 	);
 }
 
+function registromenu(){
+        var nombre = document.frm_registromenu.txtnombre;
+	var descripcion = document.frm_registromenu.txtdescripcion;
+        var precio = document.frm_registromenu.txtpre;
+        var categoria = document.frm_registromenu.txtCategoriaID;
+        alert(nombre.value);
+	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
+	$.post('menu_registrar_ope.php', 
+		{	nombre		: nombre.value,		
+			descripcion 	: descripcion.value,
+                        precio          : precio.value,
+                        categoria       : categoria.value      
+		},
+		function (data){
+			if(data=="SU REGISTRO FUE REALIZADO CORRECTAMENTE"){
+				$(location).attr('href','usuario.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+

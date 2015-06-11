@@ -51,7 +51,7 @@
         <tr>
              <td></td>	
             <td><h4><span>Empleado:</span></h4></td>
-            <td><input type="text" id='txtPersona'  maxlength='10' name='txtPersona' class="form-control input-sm" placeholder="Seleccione Empleado"></td>	
+            <td><input type="text" id='txtPersona'  maxlength='10' name='txtPersona' class="form-control input-sm" placeholder="Seleccione Empleado" disabled></td>	
             <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EMPLEADO">Buscar</button></td>
 	</tr>
 	<tr>
