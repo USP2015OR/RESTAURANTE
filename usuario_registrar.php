@@ -8,7 +8,7 @@
 			<div class="modal-header">
 				<h5>SISTEMA DE PEDIDOS DE COMANDAS</h5>
 			</div>
-     
+<form id="frm_creausuario" name="frm_creausuario" class="form-vertical" >
       <table style="margin: 0 auto;" >
 	<tr>
 		<td colspan="4">
@@ -43,11 +43,15 @@
                 <td><input type="text" id="txtrespuesta" class="form-control input-sm" placeholder="Ingrese su Respuesta"></td>	
                  <td></td>
 	</tr>
+        <tr hidden>
+		<td><label for='txtPersonaID'>PersonaID:</label></td>
+		<td><input type='text' name='txtPersonaID' id='txtPersonaID' maxlength='10' placeholder='Ingrese personalID'/></td>
+	</tr>
         
         <tr>
              <td></td>	
             <td><h4><span>Empleado:</span></h4></td>
-            <td><input type="text" id="txtrespuesta" class="form-control input-sm" placeholder="Seleccione Empleado"></td>	
+            <td><input type="text" id='txtPersona'  maxlength='10' name='txtPersona' class="form-control input-sm" placeholder="Seleccione Empleado"></td>	
             <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EMPLEADO">Buscar</button></td>
 	</tr>
 	<tr>
@@ -57,6 +61,7 @@
          <td></td>	
 	</tr>
 </table>
+</form>
         			<div class="modal-footer">
                                     <center> <h5>RESTAURANTE R & O </h5></center>
 			</div>
@@ -79,10 +84,13 @@
                             </td>
                         </tr>
                         <tr>
-                        <td width="15%">Codigo</td>
-                            <td width="60%"><center>Empleado</center></td>
-                            <td width="15%"><center>Opcion</center></td>
+                        <th width="15%">Codigo</th>
+                            <th width="60%"><center>Empleado</center></th>
                         </tr>
+<style> 
+a:hover{text-decoration:none;}
+a{text-decoration:none;} 
+</style>
                    <?php 
               require_once("conexion.php");
 	      $cnn=conectar();
@@ -91,9 +99,10 @@
                 while($row = mysql_fetch_array($clavebuscadah))
                 {?>
                          <tr>
-                            <td><input type="hidden" name="codigo" VALUE="<?php echo$row['CODIGO'];?>"><?php echo$row['CODIGO'];?></td>
-                            <td><input type="hidden" name="empleado" VALUE="<?php echo$row['EMPLEADO'];?>"><?php echo$row['EMPLEADO'];?></td>
-                            <td><center><button type="button" onclick="registrousuario();" class="btn btn-link">Seleccionar</button></center></td>                                 
+                         <td> <h5><?php echo$row['CODIGO'];?> </h5></td>
+                            <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['CODIGO']; ?>,'<?php echo $row['EMPLEADO']; ?>');">
+				<h5><?php echo $row['EMPLEADO']; ?> </h5>
+                                                           
                         </tr>
                    <?php  }?>
                         
@@ -112,4 +121,11 @@
         
  </body>
 </html>
+<script>
+	function select(id, nombre) {
+		$('#txtPersonaID').val(id);
+		$('#txtPersona').val(nombre);
+		$('#modalwindow').fadeOut(200);
+	}
+</script>
 

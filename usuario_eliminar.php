@@ -10,8 +10,9 @@
 			<div class="modal-body">
                             
                             
-                            <form id="frm_eliminarusuario" name="frm_eliminarusuario" class="form-vertical" action="usuario_eliminar_ope.php" method="post">
+  <form id="frm_eliminarusuario" name="frm_eliminarusuario" class="form-vertical" action="usuario_eliminar_ope.php" method="post">
                     <table class="table-striped">
+                        
                         <tr>
                             <td colspan="5">
                             <center><p class="form-title">Dar de baja a Usuarios</p><br/></center>

@@ -174,7 +174,7 @@ function registro(){
 	var clave = document.frm_creausuario.txtclave;
         var pregunta = document.frm_creausuario.txtpregunta;
         var respuesta = document.frm_creausuario.txtrespuesta;
-        var empleado= document.frm_creausuario.productoss;
+        var empleado= document.frm_creausuario.txtPersonaID;
 	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
 	$.post('usuario_registrar_ope.php', 
 		{	usuario		: usuario.value,		
