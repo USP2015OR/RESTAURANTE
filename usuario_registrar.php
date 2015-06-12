@@ -46,7 +46,7 @@
         <tr>
             <td><h5><label for='txtpersona'><b>Empleado:</b></label></h5></td>
             <td><input type="text" id='txtPersona' required="required"  maxlength='10' name='txtPersona' class="form-control" placeholder="Seleccione Empleado" disabled></td>	
-            <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#EMPLEADO">Buscar</button></td>
+            <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#selempleado">Buscar</button></td>
 	</tr>
 	<tr>
 		<td colspan="3">
@@ -57,66 +57,57 @@
 	</tr>
 </table>
 </form>
-<!--BUSCAR EMPLEADO-->
         
- <div class="modal fade" id="EMPLEADO" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal fade" id="selempleado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5>SISTEMA DE PEDIDOS DE COMANDAS</h5>
+				<center><h5>SELECCIONAR EMPLEADO</h5></center>
 			</div>
-			<div class="modal-body">
-                            
-                            <form id="frm_empleado" name="frm_empleado" class="form-vertical" >
-                <table class="table-striped">
-                        <tr>
-                        <td colspan="3">
-                            <center><p class="form-title">LISTA DE EMPLEADOS</p><br/></center>
-                            </td>
-                        </tr>
-                        <tr>
-                        <th width="15%">Codigo</th>
-                            <th width="60%"><center>Empleado</center></th>
-                        </tr>
-<style> 
-a:hover{text-decoration:none;}
-a{text-decoration:none;} 
-</style>
-                   <?php 
-              require_once("conexion.php");
-	      $cnn=conectar();
-                $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1",$cnn) or
-                die("Problemas en el select:".mysql_error());
-                while($row = mysql_fetch_array($clavebuscadah))
-                {?>
-                         <tr>
-                         <td> <h5><?php echo$row['CODIGO'];?> </h5></td>
-                            <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['CODIGO']; ?>,'<?php echo $row['EMPLEADO']; ?>');">
-				<h5><?php echo $row['EMPLEADO']; ?> </h5>
-                                                           
-                        </tr>
-                   <?php  }?>
-                        
-                                             
-                        
-                    </table>
-            </form>    
-			</div>
+                    <div class="modal-body">
+                        <form id="frm_re" name="frm_re" class="form-vertical">
+                            <center>
+                                <table>
+                                    <tr>
+                                    <td>
+                                        <input type="text" name="txtBuscar" id='txtBuscar' maxlength="50"  id="txtdireccion" class="form-control" placeholder="Nombres y apellidos">
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <div id="busemple">
+                                            
+                                        </div>
+                                    </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </form>
+                    </div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<center> <h7> SISTEMA DE PEDIDOS DE COMANDAS</h7></center>
 			</div>
-		</div>
+		
 	</div>
 </div>
-
-        
- </body>
-</html>
-<script>
-	function select(id, nombre) {
-		$('#txtPersonaID').val(id);
-		$('#txtPersona').val(nombre);
-		$('#modalwindow').fadeOut(200);
-	}
+</div>
+     
+       
+   <script>
+$(document).ready(function(e) {
+	mostrarDatos();
+	$('#txtBuscar').keyup(function(e) {
+		mostrarDatos();
+	});
+});
+function mostrarDatos() {
+	$('#busemple').load('mdpersonaList.php?n='+$('#txtBuscar').val());
+}
 </script>
+        
+        
+        
+        
+        
+        
 
