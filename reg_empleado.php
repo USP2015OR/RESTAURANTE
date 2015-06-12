@@ -4,8 +4,12 @@
     <head>
         
     </head>
+    <style> 
+        a:hover{text-decoration:none;}
+        a{text-decoration:none;} 
+    </style>
     <body>
-        <form id="frm_login" name="frm_regempleado" class="form-vertical"><center>
+        <form id="frm_regempleado" name="frm_regempleado" class="form-vertical"><center>
             <table>
                 <tr>
                 <td colspan="3">
@@ -22,7 +26,7 @@
                     <input type="text" readonly required="required" name="txtpersona" maxlength="50" id="txtpersona" class="form-control" placeholder="Empleado">
                 </td>
                 <td>
-                    <button type="button" onclick="" class="btn btn-success" data-toggle="modal" data-target="#selcempleado" >Buscar</button>
+                    <button type="button" onclick="bus_empleado();" class="btn btn-success" data-toggle="modal" data-target="#selcempleado" >Buscar</button>
                 </td>
                 </tr>
                 <tr>
@@ -38,7 +42,7 @@
                     <h5><label for="txtfecha"><b>Fecha de nacimiento: </b></label></h5>
                 </td>
                 <td colspan="2">
-                    <input type="text" required="required" name="txtafecha" maxlength="50" id="txtfecha" class="form-control" placeholder="Fecha de Nacimiento">
+                    <input type="date" required="required" name="txtafecha" maxlength="50" id="txtfecha" class="form-control" value="1997-06-12">
                 </td>
                 </tr>
                 <tr>
@@ -46,7 +50,7 @@
                     <h5><label for="txttelefono"><b>Telefono: </b></label></h5>
                 </td>
                 <td colspan="2">
-                    <input type="text" required="required" name="txttelefono" maxlength="50" id="txttelefono" class="form-control" placeholder="Telefono">
+                    <input type="text" maxlength="9" required="required" name="txttelefono" maxlength="50" id="txttelefono" class="form-control" placeholder="Telefono">
                 </td>
                 </tr>
                 <tr>
@@ -67,9 +71,13 @@
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="" class="btn btn-success">Registrar</button>
+                        <br><button type="button" onclick="reg_empleado()" class="btn btn-success">Registrar</button>
                     </center>
                 </td>
+                </tr>
+                <tr hidden>
+                    <td><label for='txtPersonaID'>PersonaID:</label></td>
+                    <td><input type='text' name='txtpersonaid' id='txtPersonaID' maxlength='10' placeholder='Ingrese personalID'/></td>
                 </tr>
             </table></center>
         </form>
@@ -85,7 +93,7 @@
                                 <table>
                                     <tr>
                                     <td>
-                                        <input type="text" name="txtdireccion" maxlength="50"  id="txtdireccion" class="form-control" placeholder="Nombres y apellidos">
+                                        <input type="text" name="txtbusc" maxlength="50"  id="txtbusc" class="form-control" placeholder="Nombres y apellidos" onkeyup="bus_empleado();">
                                     </td>
                                     </tr>
                                     <tr>

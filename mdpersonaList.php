@@ -18,7 +18,7 @@ a{text-decoration:none;}
 	      $cnn=conectar();
                 $n = isset($_GET['n']) ? $_GET['n'] : '';
           if ($n!='') {
-             $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1 and empleado like '%$n%'",$cnn) 
+             $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1 and empleado like '$n%'",$cnn) 
                       or die("Problemas en el select:".mysql_error());}
           else {
              $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1 ",$cnn) 

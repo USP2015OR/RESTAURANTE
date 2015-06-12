@@ -1,10 +1,49 @@
+function reg_empleado(){
+	var pid = document.frm_regempleado.txtpersonaid;
+        var direccion = document.frm_regempleado.txtdireccion;
+        var fecha = document.frm_regempleado.txtfecha;
+        var telefono = document.frm_regempleado.txttelefono;
+        var cargo = document.frm_regempleado.cbocargo;
+	alert(pid.value+" "+direccion.value+" "+fecha.value+" "+telefono.value+" "+cargo.value);
+	$.post('reg_empleado_ope.php', 
+		{	pid		: pid.value,		
+			direccion 	: direccion.value,
+                        fecha           : fecha.value,
+                        telefono        : telefono.value,
+                        cargo           : cargo.value
+		},
+		function (data){
+			if(data=="correcto"){
+				alert("Empleado registrado correctamente");
+                                document.frm_regempleado.txtpersonaid.value="";
+                                document.frm_regempleado.txtpersona.value="";
+                                document.frm_regempleado.txtdireccion.value="";
+                                document.frm_regempleado.txtfecha.value="";
+                                document.frm_regempleado.txttelefono.value="";
+                                document.frm_regempleado.cbocargo.value="";
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function pasdemp(a,b)
+{
+    document.frm_regempleado.txtpersona.value=a;
+    document.frm_regempleado.txtpersonaid.value=b;
+}
+function bus_empleado(){
+	var usuario = document.frm_re.txtbusc;
+	//alert(usuario.value);
+	cargarformulario('busemple','bus_empleado.php?nombre='+usuario.value);
+}
 function reg_per(){
 	var pnombre = document.frm_regpersona.txtpnombre;
 	var snombre = document.frm_regpersona.txtsnombre;
         var apaterno = document.frm_regpersona.txtapaterno;
         var amaterno = document.frm_regpersona.txtamaterno;
         var dni = document.frm_regpersona.txtdni;
-	alert(pnombre.value+" "+snombre.value+" "+apaterno.value+" "+amaterno.value+" "+dni.value);
+	//alert(pnombre.value+" "+snombre.value+" "+apaterno.value+" "+amaterno.value+" "+dni.value);
 	$.post('reg_persona_ope.php', 
 		{	pnombre		: pnombre.value,		
 			snombre 	: snombre.value,
@@ -143,9 +182,9 @@ function prg_sec(){
 function cargarformulario(div,formulario)
 {
 	$("#"+div).load(formulario);
-	$( "#contenido" ).hide();
-	if ( $( "#contenido" ).is( ":hidden" ) ) {
-    $( "#contenido" ).slideDown( "slow" );
+	$( "#"+div ).hide();
+	if ( $( "#"+div ).is( ":hidden" ) ) {
+    $( "#"+div ).slideDown( "slow" );
   } //else {
     //$( "#contenido" ).hide();
   //}
