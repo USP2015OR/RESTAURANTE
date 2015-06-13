@@ -50,10 +50,10 @@ require_once("conexion.php");
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Nosotros <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reseña Histórica</a></li>
+                                        <li><a href="#"  onclick="cargarformulario('contenido','reseniahistorica.php');" style="cursor:pointer">Reseña Histórica</a></li>
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Organización</a></li>
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Vision</a></li>              
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Mision</a></li> 	
+					<li><a href="#" onclick="cargarformulario('contenido','vision.php')" style="cursor:pointer">Vision</a></li>              
+					<li><a href="#" onclick="cargarformulario('contenido','mision.php')" style="cursor:pointer">Mision</a></li> 	
 					
 						
 				</ul>

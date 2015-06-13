@@ -19,6 +19,7 @@ $_SESSION['intentos']=0;
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/js_funciones.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<link href="css/my_styles.css" rel="stylesheet">
 </head>
 <body>
 <table class="table" id="cuerpo1">
@@ -46,10 +47,10 @@ $_SESSION['intentos']=0;
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Nosotros <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reseña Histórica</a></li>
+                                        <li><a href="#" onclick="cargarformulario('contenido','reseniahistorica.php')" style="cursor:pointer">Reseña Histórica</a></li>
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Organización</a></li>
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Vision</a></li>              
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Mision</a></li> 	
+					<li><a href="#" onclick="cargarformulario('contenido','vision.php')" style="cursor:pointer">Vision</a></li>              
+					<li><a href="#" onclick="cargarformulario('contenido','mision.php')" style="cursor:pointer">Mision</a></li> 	
 					
 						
 				</ul>
