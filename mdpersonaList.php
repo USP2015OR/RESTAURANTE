@@ -14,6 +14,7 @@ a:hover{text-decoration:none;}
 a{text-decoration:none;} 
 </style>
                    <?php 
+                   
               require_once("conexion.php");
 	      $cnn=conectar();
                 $n = isset($_GET['n']) ? $_GET['n'] : '';
@@ -29,7 +30,7 @@ a{text-decoration:none;}
                          <tr>
                          <td> <h5><?php echo$row['CODIGO'];?> </h5></td>
                             <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['CODIGO']; ?>,'<?php echo $row['EMPLEADO']; ?>');">
-				<h5><?php echo $row['EMPLEADO']; ?> </h5>
+				<h5><?php echo utf8_decode($row['EMPLEADO']); ?> </h5>
                                                            
                         </tr>
                    <?php  }?>

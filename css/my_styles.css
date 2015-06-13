@@ -33,3 +33,9 @@ body{
 	max-width:890px;
 	min-width:890px;
 }
+.rc {  
+	margin-left:80px;
+	margin-right:80px;
+        text-align: justify;
+        font: oblique bold 150% cursive; 
+}
