@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <?php
+header('Content-Type: text/html; charset=UTF-8');  
 require_once("conexion.php");
         header('Content-Type: text/html; charset=UTF-8'); 
 	session_start();

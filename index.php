@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <?php
+header('Content-Type: text/html; charset=UTF-8');  
 if (isset($_SESSION['usuario'])){echo "<script language=javascript>
             location.href='usuario.php';
 	   </script>";}else{

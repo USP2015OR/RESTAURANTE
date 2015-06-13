@@ -5,36 +5,33 @@
         <title> REGISTRAR USUARIO </title>
     </head>
     <body>
-			<div class="modal-header">
-				<h5>SISTEMA DE PEDIDOS DE COMANDAS</h5>
-			</div>
         <form id="frm_registromenu" name="frm_registromenu" class="form-vertical">
              <table style="margin: 0 auto;" >
                <tr>
-                       <td colspan="4">
-                               <center><p class="form-title">Registros de Platoss</p><br/></center>
+                       <td colspan="3">
+                              <center><h3><font color="#5858FA"><b>REGISTRO DE PLATOS</b></font></h3></center>
                        </td>
                </tr>
 
                <tr>
-                     <td width="10%"></td>
-                     <td width="17%"><h4><span>Nombre:</span></h4></td>
-                     <td width="50%"><input type="text"  id="txtnombre" class="form-control" placeholder="Ingrese su nombre"></td>
-                     <td width="10%"></td>
+                   
+                    <td><h5><label for="txtusuario"><b>Nombre:</b></label></h5></td>
+                    <td colspan="2"><input type="text"  id="txtnombre" class="form-control" placeholder="Ingrese su nombre"></td>
+                    
                </tr>
 
                <tr>
-                    <td></td>
-                   <td><h4><span>Descripcion:</span></h4></td>
-                   <td><input type="text" id="txtdescripcion" class="form-control" placeholder="Ingrese su Descripcion"></td>
-                    <td></td>
+                    
+                   <td><h5><label for="txtusuario"><b>Descripcion:</b></label></h5></td>
+                   <td colspan="2"><input type="text" id="txtdescripcion" class="form-control" placeholder="Ingrese su Descripcion"></td>
+                   
                </tr>	
 
                <tr>
-                    <td></td>    
-                   <td><h4><span>Precio:</span></h4></td>
-                   <td><input type="text" id="txtpre" class="form-control" placeholder="Ingrese su Precio"></td>
-                            <td></td>
+                       
+                   <td><h5><label for="txtusuario"><b>Precio:</b></label></h5></td>
+                   <td colspan="2"><input type="text" id="txtpre" class="form-control" placeholder="Ingrese su Precio"></td>
+                            
                </tr>
                <tr hidden>
                        <td><label for='txtCategoriaID'>CategoriaID:</label></td>
@@ -42,22 +39,21 @@
                </tr>
 
                <tr>
-                    <td></td>	
-                   <td><h4><span>Categoria:</span></h4></td>
+                    
+                   <td><h5><label for="txtusuario"><b>Categoria:</b></label></h5></td>
                    <td><input type="text" id='txtCategoria'  maxlength='10' name='txtCategoria' class="form-control input-sm" placeholder="Seleccione Categoria" disabled></td>	
                    <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#CATEGORIA">Buscar</button></td>
                </tr>
                <tr>
-                <td></td>	
-                <td></td>
-                <td><button type="button" onclick="registromenu();" class="btn btn-primary">Registrar</button></td>
-                <td></td>	
+               <td colspan="3">
+              <center>
+                 <br><button type="button" onclick="registromenu();" class="btn btn-success">Registrar</button>
+              </center>
+                       </td>
                </tr>
        </table>
      </form>
-        	<div class="modal-footer">
-                    <center> <h5>RESTAURANTE R & O </h5></center>
-		</div>
+        	
         
         <div class="modal fade" id="CATEGORIA" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                <div class="modal-dialog">
