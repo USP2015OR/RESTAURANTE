@@ -45,18 +45,12 @@
                         </tr>
                    <?php  }?>
                        <tr>
-                              <td></td>	
-                              <td></td>
-                                     <!--<button type="button" class="btn btn-default">Limpiar</button>-->
-                                     <td><center><button type="submit" onclick="" class="btn btn-primary">Eliminar Usuario</button></center></td>
-                              <td></td>
-                              <td></td>
+                             
+                       <td colspan="4"><center><button type="submit" onclick="" class="btn btn-success">Eliminar Usuario</button></center></td>
+                              
                       </tr>
                     </table>
             </form> 
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        </div>
    </body>
 </html>
 	
