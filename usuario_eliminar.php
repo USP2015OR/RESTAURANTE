@@ -25,9 +25,7 @@
                             <td width="15%">Estado</td>
                             <td width="15%">Eliminar</td>
                         </tr>
-                             <?php 
-                             
-                             
+                             <?php       
               require_once("conexion.php");
 	      $cnn=conectar();
                 $clavebuscadah=mysql_query("select * from V_USUARIO",$cnn) or
@@ -40,14 +38,12 @@
                             <td><?php echo$row[2];?></td>
                             <td><?php echo$row[3];?></td>
                             <!--<td><input type="text" id="usuario" class="form-control input-sm" placeholder="Ingrese su Respuesta"></td>-->
-                            <td><Input type="checkbox" class="form-control input-sm"  NAME="usuario[]" value="<?php echo$row[0];?>"/></td>
-                                       
+                           <!--class="form-control input-sm"-->
+                            <td><Input type="checkbox"   class="form-control input-sm" name="usuario[]" value="<?php echo$row[0];?>"/></td>                                      
                         </tr>
                    <?php  }?>
-                       <tr>
-                             
-                       <td colspan="4"><center><button type="submit" onclick="" class="btn btn-success">Eliminar Usuario</button></center></td>
-                              
+                       <tr>                             
+                       <td colspan="4"><center><button type="sumit" onclick="" class="btn btn-success">Eliminar Usuario</button></center></td>                            
                       </tr>
                     </table>
             </form> 

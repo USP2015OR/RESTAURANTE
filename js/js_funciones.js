@@ -255,3 +255,21 @@ function registromenu(){
 	);
 }
 
+function eliminarusuario(usuario){
+        //var usuario = document.frm_eliminarusuario.usuario;
+        alert(usuario);
+	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
+	$.post('usuario_eliminar_ope.php', 
+		{	usuario		: usuario	     
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro se elimino correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+
