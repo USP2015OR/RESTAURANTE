@@ -268,8 +268,26 @@ function eliminarusuario(usuario){
 				$(location).attr('href','usuario.php');
 			}else{
 				alert(data);
+                                
 			}
 		}
 	);
 }
 
+function reg_caja(){
+        var caja = document.frm_caja.txtcajanumero;
+	//alert(caja.value);
+	$.post('reg_caja_ope.php', 
+		{	caja		: caja.value	     
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert('Error la Caja ya se encuentra registrada');
+                             document.frm_caja.txtcajanumero.value="";
+			}
+		}
+	);
+}
