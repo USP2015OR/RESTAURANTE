@@ -362,3 +362,31 @@ function apertura_caja(){
 		}
 	);
 }
+function cierre_caja(){
+        var cierrecaja = document.frm_cierrecaja.cbcaja;
+        var cierremovimiento=document.frm_cierrecaja.txtcierremovimiento;
+        var cierrefecha=document.frm_cierrecaja.txtcierrefecha;
+        var cierremontoinicial=document.frm_cierrecaja.txtcierremontoinicial;
+        var cierremontorecaudado=document.frm_cierrecaja.txtcierremontorecaudado;
+        var cierremontoganancia=document.frm_cierrecaja.txtcierremontoganancia;
+       // alert(aperturamontoinicial.value);
+	$.post('cierre_caja_ope.php', 
+		{	cierrecaja		: cierrecaja.value,
+                        cierremovimiento        : cierremovimiento.value,
+                        cierrefecha             : cierrefecha.value,
+                        cierremontoinicial      : cierremontoinicial.value,
+                        cierremontorecaudado    : cierremontorecaudado.value,
+                        cierremontoganancia    : cierremontoganancia.value 
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su cierre de caja fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+                            //document.frm_aperturacaja.txtmontoinicial.value=data;
+                             //document.frm_caja.txtcajanumero.value="";
+			}
+		}
+	);
+}
