@@ -80,6 +80,7 @@ require_once("conexion.php");
                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_empleado.php');" style="cursor:pointer">Registro de Trabajadores</a></li>
                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_caja.php');" style="cursor:pointer">Registro de Caja</a></li>
                                          <li><a href="#"  onclick="cargarformulario('contenido','reg_mesa.php');" style="cursor:pointer">Registro de Mesa</a></li>
+                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_menudia.php');" style="cursor:pointer">Registro de Menu del Dia</a></li>
 				</ul>
 			</li>
                         <li class="dropdown"> 

@@ -315,3 +315,25 @@ function reg_mesa(){
 		}
 	);
 }
+function reg_menudia(){
+        var menudiafecha = document.frm_menudia.txtmenudiafecha;
+        var menudiacantidad=document.frm_menudia.txtmenudiacantidad;
+        var menudiacomandaid=document.frm_menudia.txtmenudiacomandaID;
+   
+	$.post('reg_menudia_ope.php', 
+		{	menudiafecha		: menudiafecha.value,
+                        menudiacantidad         : menudiacantidad.value,
+                        menudiacomandaid        : menudiacomandaid.value
+                    
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+                             //document.frm_caja.txtcajanumero.value="";
+			}
+		}
+	);
+}

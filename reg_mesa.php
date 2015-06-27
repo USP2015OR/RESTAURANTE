@@ -83,6 +83,14 @@
                     </td>
                     </tr>
                     <tr>
+                    <td>
+                        <h4>Comanda:</h4>
+                    </td>
+                    <td>
+                        <input type="text"  name="txtmesacomanda" class="form-control"  value=""  placeholder="Seleccione Comanda" disable>
+                    </td>
+                    </tr>
+                    <tr>
                     <td colspan="2">
                         <center>
                             <br><button type="button" onclick="reg_mesa();" class="btn btn-success">REGISTRAR</button>
