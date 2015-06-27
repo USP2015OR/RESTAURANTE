@@ -24,7 +24,7 @@
                         <h4>Fecha:</h4>
                     </td>
                     <td colspan="2">
-                        <input type="date"  name="txtmenudiafecha" class="form-control"  value="" >
+                        <input type="date"  name="txtmenudiafecha" class="form-control"  value="<?php echo date("Y-m-d");?>" >
                     </td>
                     </tr>
                      <tr>

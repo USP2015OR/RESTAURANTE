@@ -337,3 +337,28 @@ function reg_menudia(){
 		}
 	);
 }
+function apertura_caja(){
+        var aperturacaja = document.frm_aperturacaja.cbcaja;
+        var aperturamovimiento=document.frm_aperturacaja.txtaperturamovimiento;
+        var aperturafecha=document.frm_aperturacaja.txtaperturafecha;
+        var aperturamontoinicial=document.frm_aperturacaja.txtmontoinicial;
+       // alert(aperturamontoinicial.value);
+	$.post('apertura_caja_ope.php', 
+		{	aperturacaja		: aperturacaja.value,
+                        aperturamovimiento      : aperturamovimiento.value,
+                        aperturafecha           : aperturafecha.value,
+                        aperturamontoinicial    : aperturamontoinicial.value
+                    
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su apertura de caja fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+                            //document.frm_aperturacaja.txtmontoinicial.value=data;
+                             //document.frm_caja.txtcajanumero.value="";
+			}
+		}
+	);
+}
