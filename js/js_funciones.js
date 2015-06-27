@@ -4,7 +4,7 @@ function reg_empleado(){
         var fecha = document.frm_regempleado.txtfecha;
         var telefono = document.frm_regempleado.txttelefono;
         var cargo = document.frm_regempleado.cbocargo;
-	alert(pid.value+" "+direccion.value+" "+fecha.value+" "+telefono.value+" "+cargo.value);
+	//alert(pid.value+" "+direccion.value+" "+fecha.value+" "+telefono.value+" "+cargo.value);
 	$.post('reg_empleado_ope.php', 
 		{	pid		: pid.value,		
 			direccion 	: direccion.value,
@@ -287,6 +287,30 @@ function reg_caja(){
 			}else{
                             alert('Error la Caja ya se encuentra registrada');
                              document.frm_caja.txtcajanumero.value="";
+			}
+		}
+	);
+}
+function reg_mesa(){
+        var zona = document.frm_mesa.cbzona;
+        var mesanumero=document.frm_mesa.txtmesanumero;
+        var mesacapacidad=document.frm_mesa.txtmesacapacidad;
+     //alert(zona.value);
+       // alert(mesanumero.value);
+	//alert(caja.value);
+	$.post('reg_mesa_ope.php', 
+		{	zona		: zona.value,
+                    mesanumero          : mesanumero.value,
+                    mesacapacidad       : mesacapacidad.value
+                    
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+                             //document.frm_caja.txtcajanumero.value="";
 			}
 		}
 	);

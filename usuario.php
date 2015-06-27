@@ -12,6 +12,7 @@ require_once("conexion.php");
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
 <title>RESTAURANTE</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/my_styles.css" rel="stylesheet">
@@ -78,6 +79,7 @@ require_once("conexion.php");
 					<li><a href="#"  onclick="cargarformulario('contenido','reg_persona.php')" style="cursor:pointer">Registro de Persona</a></li> 
                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_empleado.php');" style="cursor:pointer">Registro de Trabajadores</a></li>
                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_caja.php');" style="cursor:pointer">Registro de Caja</a></li>
+                                         <li><a href="#"  onclick="cargarformulario('contenido','reg_mesa.php');" style="cursor:pointer">Registro de Mesa</a></li>
 				</ul>
 			</li>
                         <li class="dropdown"> 
