@@ -1,3 +1,66 @@
+
+function llenar()
+{
+    var dni=document.frm_regpersona.txtdni;
+    //alert (dni.value);
+    $.post('ws_persona.php', 
+		{	dni		: dni.value,
+                        pos             : 0
+		},
+		function (data){
+                    if(data=="error")
+                    {
+                        alert("DNI inválido, porfavor verifique el número ingresado");
+                        document.frm_regpersona.txtpnombre.value="";
+                    }else
+                    {
+                        document.frm_regpersona.txtpnombre.value=data;
+                    }
+		}
+	);
+$.post('ws_persona.php', 
+		{	dni		: dni.value,
+                        pos             : 1
+		},
+		function (data){
+                    if(data=="error")
+                    {
+                        document.frm_regpersona.txtsnombre.value="";
+                    }else
+                    {
+                        document.frm_regpersona.txtsnombre.value=data;
+                    }
+		}
+	);
+$.post('ws_persona.php', 
+		{	dni		: dni.value,
+                        pos             : 2
+		},
+		function (data){
+                    if(data=="error")
+                    {
+                        document.frm_regpersona.txtapaterno.value="";
+                    }else
+                    {
+                        document.frm_regpersona.txtapaterno.value=data;
+                    }
+		}
+	);
+$.post('ws_persona.php', 
+		{	dni		: dni.value,
+                        pos             : 3
+		},
+		function (data){
+                    if(data=="error")
+                    {
+                        document.frm_regpersona.txtamaterno.value="";
+                    }else
+                    {
+                        document.frm_regpersona.txtamaterno.value=data;
+                    }
+		}
+	);
+}
 function reg_empleado(){
 	var pid = document.frm_regempleado.txtpersonaid;
         var direccion = document.frm_regempleado.txtdireccion;
