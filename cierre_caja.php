@@ -4,7 +4,6 @@
                 $clavebuscadah=mysql_query("SELECT caja.caja_id ,caja.caja_numero FROM `movimiento` inner join caja on caja.caja_id=movimiento.caja_id",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 //$row = mysql_fetch_array($clavebuscadah);
-
 ?>
 <html>
     <head>
@@ -23,7 +22,7 @@
 	   });    
 	});
 </script>
-              <script type="text/javascript" charset="utf-8">
+        <script type="text/javascript" charset="utf-8">
 	  $(document).ready(function() {
 	  // Parametros para el combo
 	   $("#cbcaja").change(function () {
@@ -37,7 +36,7 @@
 	   });    
 	});
 </script>
-                      <script type="text/javascript" charset="utf-8">
+        <script type="text/javascript" charset="utf-8">
 	  $(document).ready(function() {
 	  // Parametros para el combo
 	   $("#cbcaja").change(function () {

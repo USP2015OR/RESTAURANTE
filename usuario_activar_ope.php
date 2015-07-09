@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$query="UPDATE `usuario` SET`usuario_estado`= 1 WHERE usuario_id=$usuario[$i]";
         mysql_query($query,$cnn) or die(mysql_errno());       
         }
-      header('Location: usuario.php');
+       echo"<script type=\"text/javascript\">alert('Usted realizo la operacion correctamente'); window.location='usuario.php';</script>" ;
 }
-header('Location: usuario.php');
 ?>

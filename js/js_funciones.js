@@ -373,7 +373,6 @@ function reg_mesa(){
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
-                             //document.frm_caja.txtcajanumero.value="";
 			}
 		}
 	);
@@ -395,7 +394,6 @@ function reg_menudia(){
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
-                             //document.frm_caja.txtcajanumero.value="";
 			}
 		}
 	);
@@ -419,8 +417,6 @@ function apertura_caja(){
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
-                            //document.frm_aperturacaja.txtmontoinicial.value=data;
-                             //document.frm_caja.txtcajanumero.value="";
 			}
 		}
 	);
@@ -447,9 +443,8 @@ function cierre_caja(){
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
-                            //document.frm_aperturacaja.txtmontoinicial.value=data;
-                             //document.frm_caja.txtcajanumero.value="";
 			}
 		}
 	);
 }
+
