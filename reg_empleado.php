@@ -2,7 +2,17 @@
 ?>
 <html>
     <head>
-        
+        <script>
+        function validar(){
+             alert("Ingrese direccion") ;
+            if(document.frm_regempleado.txtdireccion.value.length==0{
+              alert("Ingrese direccion") ;
+              document.frm_regempleado.txtdireccion.focus();
+              return 0;
+        }
+          document.frm_regempleado.reg_empleado(); 
+    }
+        </script>
     </head>
     <style> 
         a:hover{text-decoration:none;}
@@ -71,7 +81,7 @@
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="reg_empleado()" class="btn btn-success">Registrar</button>
+                        <br><button type="button" onclick="reg_empleado();" class="btn btn-success">Registrar</button>
                     </center>
                 </td>
                 </tr>
