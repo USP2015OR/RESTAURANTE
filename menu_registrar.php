@@ -3,6 +3,13 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <title> REGISTRAR USUARIO </title>
+        <script type="text/javascript">
+// Solo permite ingresar numeros.
+function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode
+	return (key >= 48 && key <= 57)
+}
+</script>
     </head>
     <body>
         <form id="frm_registromenu" name="frm_registromenu" class="form-vertical">

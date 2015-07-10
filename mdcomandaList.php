@@ -5,8 +5,8 @@
                             <center><p class="form-title">LISTA DE COMANDAS</p><br/></center>
                             </td>
                         </tr>
-                        <tr>
-                        <th width="15%">Codigo</th>
+                        <tr align="center">
+                        <th width="15%" >Codigo</th>
                             <th width="60%"><center>Comanda</center></th>
                         </tr>
 <style> 
@@ -19,18 +19,19 @@ a{text-decoration:none;}
 	      $cnn=conectar();
                 $n = isset($_GET['n']) ? $_GET['n'] : '';
           if ($n!='') {
-             $clavebuscadah=mysql_query("SELECT comanda_id,comanda_nombre FROM `comanda` where comanda_estado=1 and comanda_nombre like '$n%'",$cnn) 
+             $clavebuscadah=mysql_query("SELECT comanda_id,comanda_nombre FROM `comanda` where comanda_estado=1 and comanda_nombre like '$n%' limit 10",$cnn) 
                       or die("Problemas en el select:".mysql_error());}
           else {
-             $clavebuscadah=mysql_query("SELECT comanda_id,comanda_nombre FROM `comanda` where comanda_estado=1",$cnn) 
+             $clavebuscadah=mysql_query("SELECT comanda_id,comanda_nombre FROM `comanda` where comanda_estado=1 limit 10",$cnn) 
                      or die("Problemas en el select:".mysql_error());  }
                
                 while($row = mysql_fetch_array($clavebuscadah))
                 {?>
-                         <tr>
+                        <tr align="center">
                          <td> <h5><?php echo$row['comanda_id'];?> </h5></td>
                             <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['comanda_id']; ?>,'<?php echo $row['comanda_nombre']; ?>');">
-				<h5><?php echo utf8_decode($row['comanda_nombre']); ?> </h5>
+                                    <h5><?php echo utf8_decode($row['comanda_nombre']); ?> </h5>
+                            <td>
                                                            
                         </tr>
                    <?php  }?>   

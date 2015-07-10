@@ -11,7 +11,9 @@ function llenar()
                     if(data=="error")
                     {
                         alert("DNI inválido, porfavor verifique el número ingresado");
+                        
                         document.frm_regpersona.txtpnombre.value="";
+                        document.frm_regpersona.txtdni.value="";
                     }else
                     {
                         document.frm_regpersona.txtpnombre.value=data;
@@ -447,4 +449,24 @@ function cierre_caja(){
 		}
 	);
 }
+function update_caja(){
+        var cajaid = document.frm_mocaja.txtcaja;
+        var cajanumero=document.frm_mocaja.txtcajanum;
+      
+     // alert(cajaid.value+' '+cajanumero.value);
+	$.post('caja_actualizar_ope.php', 
+		{	cajaid		: cajaid.value,
+                        cajanumero      : cajanumero.value
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su actualizacion fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+			}
+		}
+	);
+}
+
 

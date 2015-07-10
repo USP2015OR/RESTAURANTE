@@ -2,7 +2,29 @@
 ?>
 <html>
     <head>
+          <script type="text/javascript">
+       function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode
+	return (key >= 48 && key <= 57)
+}
+</script>
         
+          <script>
+          function validar(){
+             //alert("Ingrese direccion") ;
+             if(document.frm_menudia.txtmenudiacantidad.value.length==0){
+              alert("Ingrese Cantidad") ;
+             // document.frm_mesa.cbzona.focus();
+              document.frm_menudia.txtmenudiacantidad.focus();
+              return 0;}
+            if(document.frm_menudia.txtmenudiacomanda.value.length==0){
+              alert("Seleccione Comanda") ;
+              document.frm_menudia.txtmenudiacomanda.focus();
+              return 0;
+        }   
+         reg_menudia();    
+    } 
+        </script>
     </head>
     <style> 
         a:hover{text-decoration:none;}
@@ -32,7 +54,7 @@
                         <h4>Cantidad:</h4>
                     </td>
                     <td colspan="2">
-                        <input type="text" name="txtmenudiacantidad" class="form-control"  value="" placeholder="Ingrese Cantidad">
+                        <input type="text" name="txtmenudiacantidad" class="form-control"  value="" placeholder="Ingrese Cantidad" onKeyPress="return soloNumeros(event)">
                     </td>
                     </tr>
                      
@@ -54,7 +76,7 @@
                     <tr>
                     <td colspan="3">
                         <center>
-                            <br><button type="button" onclick="reg_menudia();" class="btn btn-success">REGISTRAR</button>
+                            <br><button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
                             
                         </center>
                     </td>
@@ -103,7 +125,7 @@
 </div>
     </body>
 </html>
-   <script>
+<script>
 $(document).ready(function(e) {
 	mostrarDatos();
 	$('#txtBuscar').keyup(function(e) {

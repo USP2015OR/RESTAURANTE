@@ -2,8 +2,26 @@
 ?>
 <html>
     <head>
+       <script type="text/javascript">
+        function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode;
+	return (key >= 48 && key <= 57);
+}
+        </script>  
         
+         <script>
+          function validar(){
+             //alert("Ingrese direccion") ;
+            if(document.frm_regpersona.txtdni.value.length==0){
+              alert("Ingrese dni") ;
+              document.frm_regpersona.txtdni.focus();
+              return 0;
+        }
+         reg_per();    
+    } 
+        </script>
     </head>
+
     <body>
         <form id="frm_login" name="frm_regpersona" class="form-vertical"><center>
             <table>
@@ -51,17 +69,17 @@
                     <h5><label for="txtdni"><b>DNI: </b></label></h5>
                 </td>
                 <td>
-                    <input type="text" required="required" name="txtdni" maxlength="8" id="txtdni" class="form-control" placeholder="DNI">
+                    <input type="text" required="required" name="txtdni" maxlength="8" id="txtdni" class="form-control" placeholder="DNI" onKeyPress="return soloNumeros(event)">
                     
                 </td>
                 <TD>
-                    <button type="button" onclick="llenar()" class="btn btn-success">SELECCIONAR</button>
+                    <button type="button" onclick="llenar();" class="btn btn-success">SELECCIONAR</button>
                 </TD>
                 </tr>
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="reg_per();" class="btn btn-success">Registrar</button>
+                        <br><button type="button" onclick="validar();" class="btn btn-success">Registrar</button>
                     </center>
                 </td>
                 </tr>

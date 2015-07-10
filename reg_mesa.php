@@ -11,7 +11,28 @@
 ?>
 <html>
     <head>
+         <script type="text/javascript">
+        function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode;
+	return (key >= 48 && key <= 57);
+}
+        </script>
     </head>
+     <script>
+          function validar(){
+             //alert("Ingrese direccion") ;
+             if(document.frm_mesa.cbzona.value.length==0){
+              alert("Seleccione zona") ;
+             // document.frm_mesa.cbzona.focus();
+              return 0;}
+            if(document.frm_mesa.txtmesacapacidad.value.length==0){
+              alert("Ingrese Capacidad") ;
+              document.frm_mesa.txtmesacapacidad.focus();
+              return 0;
+        }   
+          reg_mesa();    
+    } 
+        </script>
  <script type="text/javascript" charset="utf-8">
 	  $(document).ready(function() {
 	  // Parametros para el combo
@@ -79,13 +100,13 @@
                         <h4>Capacidad:</h4>
                     </td>
                     <td>
-                        <input type="text"  name="txtmesacapacidad" class="form-control"  value=""  placeholder="Ingrese Capacidad">
+                        <input type="text"  name="txtmesacapacidad" class="form-control"  value="" maxlength="1" placeholder="Ingrese Capacidad" onKeyPress="return soloNumeros(event)">
                     </td>
                     </tr>
                     <tr>
                     <td colspan="2">
                         <center>
-                            <br><button type="button" onclick="reg_mesa();" class="btn btn-success">REGISTRAR</button>
+                            <br><button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
                             
                         </center>
                     </td>

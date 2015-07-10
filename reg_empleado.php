@@ -2,17 +2,28 @@
 ?>
 <html>
     <head>
+        <script type="text/javascript">
+        function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode;
+	return (key >= 48 && key <= 57);
+}
+        </script> 
         <script>
-        function validar(){
-             alert("Ingrese direccion") ;
-            if(document.frm_regempleado.txtdireccion.value.length==0{
+          function validar(){
+             //alert("Ingrese direccion") ;
+            if(document.frm_regempleado.txtdireccion.value.length==0){
               alert("Ingrese direccion") ;
               document.frm_regempleado.txtdireccion.focus();
               return 0;
+        }    if(document.frm_regempleado.txtpersona.value.length==0){
+              alert("Seleccione persona") ;
+              //document.frm_regempleado.txtdireccion.focus();
+              return 0;
         }
-          document.frm_regempleado.reg_empleado(); 
-    }
+          reg_empleado();    
+    } 
         </script>
+        
     </head>
     <style> 
         a:hover{text-decoration:none;}
@@ -60,7 +71,7 @@
                     <h5><label for="txttelefono"><b>Telefono: </b></label></h5>
                 </td>
                 <td colspan="2">
-                    <input type="text" maxlength="9" required="required" name="txttelefono" maxlength="50" id="txttelefono" class="form-control" placeholder="Telefono">
+                    <input type="text" maxlength="9"  name="txttelefono"  id="txttelefono" class="form-control" placeholder="Telefono" onKeyPress="return soloNumeros(event)" value="">
                 </td>
                 </tr>
                 <tr>
@@ -81,7 +92,7 @@
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="reg_empleado();" class="btn btn-success">Registrar</button>
+                        <br><button type="button" onclick="validar();" class="btn btn-success">Registrar</button>
                     </center>
                 </td>
                 </tr>
