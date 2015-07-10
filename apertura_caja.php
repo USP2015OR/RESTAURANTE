@@ -1,14 +1,42 @@
 <?php
  require_once("conexion.php");
 	      $cnn=conectar();
-                $clavebuscadah=mysql_query("SELECT caja_id,caja_numero FROM `caja`",$cnn) or
+                $clavebuscadah=mysql_query("SELECT caja_id,caja_numero FROM `caja` where caja_estado=1",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 //$row = mysql_fetch_array($clavebuscadah);
 
 ?>
 <html>
     <head>
-        
+             
+<script type="text/javascript">
+// Solo permite ingresar numeros.
+function soloNumeros(){
+	
+	 if ((event.keyCode < 48) || (event.keyCode > 57))
+		if((event.keyCode < 46) || (event.keyCode > 46))
+		{
+			event.returnValue = false;
+		}
+	
+}
+</script>
+          <script>
+          function validar(){
+             //alert("Ingrese direccion") ;
+             if(document.frm_aperturacaja.cbcaja.value.length==0){
+              alert("Seleccione una caja") ;
+             // document.frm_mesa.cbzona.focus();
+              //document.frm_aperturacaja.txtmenudiacantidad.focus();
+              return 0;}
+            if(document.frm_aperturacaja.txtmontoinicial.value.length==0){
+              alert("Ingrese cantinidad inicial") ;
+              document.frm_aperturacaja.txtmontoinicial.focus();
+              return 0;
+        }   
+         apertura_caja();    
+    } 
+        </script>
     </head>
     <style> 
         a:hover{text-decoration:none;}
@@ -60,14 +88,14 @@
                         <h4>Monto Inicial:</h4>
                     </td>
                     <td>
-                        <input type="text"  name="txtmontoinicial" class="form-control"  value="" placeholder=" 0.00">
+                        <input type="text"  name="txtmontoinicial" class="form-control"  value="" placeholder=" 0.00" onKeyPress="return soloNumeros()">
                     </td>
                     </tr>
                                         
                     <tr>
                     <td colspan="2">
                         <center>
-                            <br><button type="button" onclick="apertura_caja();" class="btn btn-success">REGISTRAR</button>
+                            <br><button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
                             
                         </center>
                     </td>
