@@ -1,4 +1,102 @@
-
+function pascid(a)
+{
+    //alert(a);
+    document.frm_nca.txtncid.value=a;
+}
+function up_detp(){
+    //alert('a');
+    var cant=document.frm_nca.txtncantidad;
+    //alert('a');
+    var id=document.frm_nca.txtncid;
+    //alert(cant+' '+id);
+    $.post('up_detp.php', 
+		{	id	: id.value,
+                        cant    : cant.value
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Modificado');
+                                cargarformulario('detalle','det_pedido.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function elim_detp(a){
+    //alert(a);
+    $.post('elim_detp.php', 
+		{	id	: a
+		},
+		function (data){
+			if(data=="correcto"){
+                                cargarformulario('detalle','det_pedido.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function agregar_detalle(){
+	var id = document.frm_regpedido.txtcomandaid;
+        var cant = document.frm_regpedido.txtcantidad;
+        var pre = document.frm_regpedido.txtprecio;
+        var tot = document.frm_regpedido.txttotal;
+        var nom = document.frm_regpedido.txtcomanda;
+	//alert(pid.value+" "+direccion.value+" "+fecha.value+" "+telefono.value+" "+cargo.value);
+	$.post('agre_detalle.php', 
+		{	id	: id.value,		
+			cant    : cant.value,
+                        pre     : pre.value,
+                        tot     : tot.value,
+                        nom     : nom.value
+		},
+		function (data){
+			if(data=="correcto"){
+				//alert("Empleado registrado correctamente");
+                                document.frm_regpedido.txtcomandaid.value="";
+                                document.frm_regpedido.txtcantidad.value="1";
+                                document.frm_regpedido.txtprecio.value="0";
+                                document.frm_regpedido.txttotal.value="0";
+                                document.frm_regpedido.txtcomanda.value="";
+                                cargarformulario('detalle','det_pedido.php');
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function caltotal()
+{
+    var pre=document.frm_regpedido.txtprecio.value;
+    var cant=document.frm_regpedido.txtcantidad.value;
+    document.frm_regpedido.txttotal.value=pre*cant;
+}
+function pascom(a,b,c)
+{
+    document.frm_regpedido.txtcomandaid.value=c;
+    document.frm_regpedido.txtcomanda.value=a;
+    document.frm_regpedido.txtprecio.value=b;
+    var cant = document.frm_regpedido.txtcantidad.value;
+    document.frm_regpedido.txttotal.value=b*cant;
+}
+function pasme(a,b)
+{
+    document.frm_regpedido.txtmesa.value=b;
+    document.frm_regpedido.txtmesaid.value=a;
+}
+function busca_mesa(){
+	var niv = document.frm_me.cbonivel;
+        var zon = document.frm_me.cbozona;
+        
+	cargarformulario('buscamesa','bus_mesa.php?niv='+niv.value+'&zon='+zon.value);
+}
+function busca_comanda(){
+	var nombre = document.frm_re.txtbusc;
+        var cat = document.frm_re.cbocategoria;
+        
+	cargarformulario('buscomanda','bus_comanda.php?nombre='+nombre.value+'&cat='+cat.value);
+}
 function llenar()
 {
     var dni=document.frm_regpersona.txtdni;

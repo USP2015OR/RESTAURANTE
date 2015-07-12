@@ -104,7 +104,11 @@ require_once("conexion.php");
                         
                         <?php if($_SESSION['tipousuario'] == '1') {?>
                                     <li class="dropdown"> 
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Toma de Pedidos</a>	
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pedidos<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">					
+                                             <li><a href="#" onclick="cargarformulario('contenido','reg_pedido.php?usuario=<?php echo $_SESSION['usuario']; ?>');" style="cursor:pointer">Registro</a></li>	             
+                                            <li><a href="#" onclick="cargarformulario('contenido','');" style="cursor:pointer">Listar</a></li>
+                                    </ul>
                                     </li>
                        <?php } ?>
 
