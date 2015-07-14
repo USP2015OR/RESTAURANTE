@@ -37,19 +37,20 @@ function elim_detp(a){
 		}
 	);
 }
-function agregar_detalle(){
+function agregar_detalle(a){
 	var id = document.frm_regpedido.txtcomandaid;
         var cant = document.frm_regpedido.txtcantidad;
         var pre = document.frm_regpedido.txtprecio;
         var tot = document.frm_regpedido.txttotal;
         var nom = document.frm_regpedido.txtcomanda;
-	//alert(pid.value+" "+direccion.value+" "+fecha.value+" "+telefono.value+" "+cargo.value);
+	//alert('jjj');
 	$.post('agre_detalle.php', 
 		{	id	: id.value,		
 			cant    : cant.value,
                         pre     : pre.value,
                         tot     : tot.value,
-                        nom     : nom.value
+                        nom     : nom.value,
+                        usuario : a
 		},
 		function (data){
 			if(data=="correcto"){
@@ -59,7 +60,7 @@ function agregar_detalle(){
                                 document.frm_regpedido.txtprecio.value="0";
                                 document.frm_regpedido.txttotal.value="0";
                                 document.frm_regpedido.txtcomanda.value="";
-                                cargarformulario('detalle','det_pedido.php');
+                                cargarformulario('detalle','det_pedido.php?usuario='+a+'');
 			}else{
 				alert(data);
 			}

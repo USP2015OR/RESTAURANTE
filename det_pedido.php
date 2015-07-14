@@ -2,8 +2,9 @@
 require_once("conexion.php");
 $cnn=conectar();
 $suma=0;
+$usuario=$_GET['usuario'];
 //$nombre="";
-$query="SELECT `nombre`,`cantidad`, `precio`, `total`,id FROM `temp_detallepedido`";
+$query="SELECT `nombre`,`cantidad`, `precio`, `total`,id FROM `temp_detallepedido` where usuario=".$usuario."";
 $rs=mysql_query($query,$cnn);
 //$reg = mysql_fetch_array($rs);
 $nfilas = mysql_num_rows ($rs);?>

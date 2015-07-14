@@ -4,7 +4,7 @@ $usuario=$_GET['usuario'];
 <html>
     <head>
         <script type="text/javascript">
-        cargarformulario('detalle','det_pedido.php');
+        cargarformulario('detalle','det_pedido.php?usuario=<?php echo $usuario; ?>');
         </script>
     </head>
     <body>
@@ -66,7 +66,7 @@ $usuario=$_GET['usuario'];
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="agregar_detalle();" class="btn btn-success">Agregar</button>
+                        <br><button type="button" onclick="agregar_detalle(<?php echo $usuario; ?>);" class="btn btn-success">Agregar</button>
                     </center>
                 </td>
                 </tr>
