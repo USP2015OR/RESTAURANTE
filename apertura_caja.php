@@ -4,7 +4,7 @@
                 $clavebuscadah=mysql_query("SELECT caja_id,caja_numero FROM `caja` where caja_estado=1",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 //$row = mysql_fetch_array($clavebuscadah);
-
+ date_default_timezone_set('America/Lima'); 
 ?>
 <html>
     <head>
@@ -91,7 +91,14 @@ function soloNumeros(){
                         <input type="text"  name="txtmontoinicial" class="form-control"  value="" placeholder=" 0.00" onKeyPress="return soloNumeros()">
                     </td>
                     </tr>
-                                        
+                        <tr>
+                    <td>
+                        <h4>Tipo cambio Dolar:</h4>
+                    </td>
+                    <td>
+                        <input type="text"  name="txttipocambio" class="form-control"  value="" placeholder=" 0.00" onKeyPress="return soloNumeros()">
+                    </td>
+                    </tr>               
                     <tr>
                     <td colspan="2">
                         <center>

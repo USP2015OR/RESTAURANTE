@@ -85,7 +85,9 @@ require_once("conexion.php");
                                          <li><a href="#"  onclick="cargarformulario('contenido','cierre_caja.php');" style="cursor:pointer">Cierre de Caja</a></li>
                                           <li><a href="#"  onclick="cargarformulario('contenido','caja_mantenimiento.php');" style="cursor:pointer">Eliminar de Caja</a></li>
                                           <li><a href="#"  onclick="cargarformulario('contenido','caja_actualizar.php');" style="cursor:pointer">Modificar Caja</a></li>
-				</ul>
+				          <li><a href="#"  onclick="cargarformulario('contenido','asignacion_caja.php');" style="cursor:pointer">Asignacion Caja</a></li>
+
+                                </ul>
 			</li>
                         <li class="dropdown"> 
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reportes <b class="caret"></b></a>
