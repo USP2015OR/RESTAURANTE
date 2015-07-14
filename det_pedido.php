@@ -56,7 +56,7 @@ $nfilas = mysql_num_rows ($rs);?>
             </center>
         </td>
         <td width="100">
-            <center><a href="#" onclick="elim_detp(<?php echo $reg[4] ?>)">Eliminar</a></center>
+            <center><a href="#" onclick="elim_detp(<?php echo $reg[4] ?>,<?php echo $usuario; ?>)">Eliminar</a></center>
         </td>
         </tr>
         <?PHP 
@@ -90,10 +90,10 @@ $nfilas = mysql_num_rows ($rs);?>
                                 <table>
                                     <tr>
                                     <td>
-                                        <input type="text" name="txtncantidad" maxlength="50"  id="txtncantidad" class="form-control" placeholder="Cantidad">
+                                        <input type="text" name="txtncantidad" maxlength="50"  id="txtncantidad" class="form-control" placeholder="Cantidad" onkeypress="return soloNumeros(event)">
                                     </td>
                                     <td>
-                                        <button type="button" onclick="up_detp()" class="btn btn-success" data-dismiss="modal" >Guardar</button>
+                                        <button type="button" onclick="up_detp(<?php echo $usuario; ?>)" class="btn btn-success" data-dismiss="modal" >Guardar</button>
                                     </td>
                                     </tr>
                                     <tr>

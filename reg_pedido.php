@@ -8,7 +8,7 @@ $usuario=$_GET['usuario'];
         </script>
     </head>
     <body>
-        <form id="frm_regempleado" name="frm_regpedido" class="form-vertical"><center>
+        <form id="frm_regpedido" name="frm_regpedido" class="form-vertical"><center>
             <table>
                 <tr>
                 <td colspan="3">
@@ -44,7 +44,7 @@ $usuario=$_GET['usuario'];
                     <h5><label for="txtcantidad"><b>Cantidad: </b></label></h5>
                 </td>
                 <td colspan="2">
-                    <input type="number" required="required" name="txtcantidad"  id="txtcantidad" class="form-control" value="1" onkeyup="caltotal()" onchange="caltotal()">
+                    <input type="number" required="required" name="txtcantidad"  id="txtcantidad" class="form-control" value="1" onkeyup="caltotal()" onchange="caltotal()" onkeypress="return soloNumeros(event)">
                 </td>
                 </tr>
                 <tr>

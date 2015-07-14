@@ -1,36 +1,70 @@
+function soloNumeros(e) 
+{ 
+    var key = window.Event ? e.which : e.keyCode 
+    return ((key >= 48 && key <= 57) || (key==8))
+}
+function registrar_pedido(a)
+{
+    var mid=document.frm_regpedido.txtmesaid;
+    if(mid.value !== ""){
+    $.post('reg_pedido_ope.php', 
+		{	mid	: mid.value,
+                        emp     : a
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Pedido Registrado');
+                                cargarformulario('detalle','det_pedido.php?usuario='+a);
+                                document.frm_regpedido.txtmesaid.value="";
+                                document.frm_regpedido.txtmesa.value="";
+			}else{
+				alert(data);
+			}
+		}
+	);}
+        else{
+            alert('Seleccione una mesa');
+        }
+}
 function pascid(a)
 {
     //alert(a);
     document.frm_nca.txtncid.value=a;
 }
-function up_detp(){
+function up_detp(a){
     //alert('a');
     var cant=document.frm_nca.txtncantidad;
     //alert('a');
     var id=document.frm_nca.txtncid;
     //alert(cant+' '+id);
+    if(cant.value != 0 && cant.value !== ""){
     $.post('up_detp.php', 
 		{	id	: id.value,
-                        cant    : cant.value
+                        cant    : cant.value,
+                        usuario : a
 		},
 		function (data){
 			if(data=="correcto"){
                             alert('Modificado');
-                                cargarformulario('detalle','det_pedido.php');
+                                cargarformulario('detalle','det_pedido.php?usuario='+a);
 			}else{
 				alert(data);
 			}
 		}
-	);
+	);}
+        else{
+            alert('Ingrese cantidad válida');
+        }
 }
-function elim_detp(a){
+function elim_detp(a,b){
     //alert(a);
     $.post('elim_detp.php', 
-		{	id	: a
+		{	id	: a,
+                        usuario : b
 		},
 		function (data){
 			if(data=="correcto"){
-                                cargarformulario('detalle','det_pedido.php');
+                                cargarformulario('detalle','det_pedido.php?usuario='+b);
 			}else{
 				alert(data);
 			}
@@ -44,6 +78,8 @@ function agregar_detalle(a){
         var tot = document.frm_regpedido.txttotal;
         var nom = document.frm_regpedido.txtcomanda;
 	//alert('jjj');
+        if(id.value !== ""){
+        if(cant.value != 0 && cant.value !== ""){
 	$.post('agre_detalle.php', 
 		{	id	: id.value,		
 			cant    : cant.value,
@@ -65,7 +101,13 @@ function agregar_detalle(a){
 				alert(data);
 			}
 		}
-	);
+	);}
+        else{
+            alert ('Ingrese cantidad');
+        }}
+    else{
+        alert('Seleccione un platillo');
+    }
 }
 function caltotal()
 {
