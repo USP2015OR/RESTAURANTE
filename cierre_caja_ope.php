@@ -7,11 +7,13 @@ $cierrefecha=$_POST['cierrefecha'];
 $cierremontoinicial=$_POST['cierremontoinicial'];
 $cierremontorecaudado=$_POST['cierremontorecaudado'];
 $cierremontoganancia=$_POST['cierremontoganancia'];
-$query="INSERT INTO `movimiento`(`caja_id`, `movimiento_tipo`, `movimiento_fecha`, `movimiento_monini`, `movimiento_monfin`, `movimiento_recaudacion`, `movimiento_estado`, `movimiento_fechreg`) VALUES ('$cierrecaja',(case '$cierremovimiento' when 'Cierre' then 2 end),'$cierrefecha','$cierremontoinicial','$cierremontoganancia','$cierremontorecaudado',2,now());";
+$query1="UPDATE `caja` SET `caja_estado`=1 WHERE `caja_numero`= $cierrecaja;";
+ mysql_query($query1,$cnn);
+$query="UPDATE `movimiento` SET `movimiento_tipo`=2,`movimiento_monfin`=$cierremontorecaudado,`movimiento_recaudacion`=$cierremontoganancia,`movimiento_estado`=2 WHERE `caja_id`= $cierrecaja and `movimiento_fecha`= curdate() and `movimiento_tipo`=1;";
 if(mysql_query($query,$cnn)){
 		echo "correcto";
                 
 	}else{
-		echo "FALLO";
+		echo "Fallo";
 	}
 ?>

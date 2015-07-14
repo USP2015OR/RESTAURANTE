@@ -4,6 +4,8 @@
                 $clavebuscadah=mysql_query("SELECT caja.caja_id ,caja.caja_numero FROM `movimiento` inner join caja on caja.caja_id=movimiento.caja_id where `movimiento_fecha`=curdate() and movimiento_tipo = 1",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 //$row = mysql_fetch_array($clavebuscadah);
+                
+                date_default_timezone_set('America/Lima'); 
 ?>
 <html>
     <head>
@@ -13,7 +15,7 @@
 	   $("#cbcaja").change(function () {
 	      $("#cbcaja option:selected").each(function () {
 	        elegido=$(this).val();
-               //alert(elegido);
+               alert(elegido);
 	        $.post("montoini.php", { elegido: elegido }, function(data){
 	        $("#montoini").html(data);
                 $("#montorecaudado").html(data);
@@ -49,6 +51,20 @@
 	     });
 	   });    
 	});
+</script>
+<script type=”text/javascript”>
+    function validar(){
+           var el = document.frm_cierrecaja.cbcaja.value;  
+          //alert(el.valueOf());
+           if (el.valueOf()>0){
+                cierre_caja();
+        
+        }else{
+           alert("Selecione caja");  
+        }
+       
+    }
+
 </script>
     </head>
     <style> 
@@ -104,7 +120,7 @@
                        <div class="control-group">
                         <div class="controls">
                             <di id="montoini">
-                            <input type="text" readonly required="required" name="txtcajanumero" class="form-control"  value="" placeholder="Monto Inicial">
+                            <input type="text" readonly required="required" id="txtcajanumero" name="txtcajanumero" class="form-control"  value="" placeholder="Monto Inicial">
                             </di>
                               
                         </div>
@@ -145,7 +161,7 @@
                     <tr>
                     <td colspan="2">
                         <center>
-                            <br><button type="button" onclick="cierre_caja();" class="btn btn-success">REGISTRAR</button>
+                            <br><button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
                             
                         </center>
                     </td>

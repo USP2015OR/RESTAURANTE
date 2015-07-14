@@ -504,12 +504,15 @@ function apertura_caja(){
         var aperturamovimiento=document.frm_aperturacaja.txtaperturamovimiento;
         var aperturafecha=document.frm_aperturacaja.txtaperturafecha;
         var aperturamontoinicial=document.frm_aperturacaja.txtmontoinicial;
+        var aperturadolar=document.frm_aperturacaja.txttipocambio;
+
        // alert(aperturamontoinicial.value);
 	$.post('apertura_caja_ope.php', 
 		{	aperturacaja		: aperturacaja.value,
                         aperturamovimiento      : aperturamovimiento.value,
                         aperturafecha           : aperturafecha.value,
-                        aperturamontoinicial    : aperturamontoinicial.value
+                        aperturamontoinicial    : aperturamontoinicial.value,
+                        aperturadolar           : aperturadolar.value
                     
 		},
 		function (data){
@@ -560,6 +563,34 @@ function update_caja(){
 		function (data){
 			if(data=="correcto"){
                             alert('Su actualizacion fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+			}
+		}
+	);
+}
+function asignacion_caja(){
+        var cbcaja = document.frm_asignacion.cbcaja;
+        var asignaciontrabajadorID=document.frm_asignacion.txtasignaciontrabajadorID;
+      // var asignaciontrabajador=document.frm_asignacion.txtasignaciontrabajador;
+        var fechainicio=document.frm_asignacion.txtfechainicio;
+        var fechafin=document.frm_asignacion.txtfechafin;
+        var cbcaja1=document.frm_asignacion.cbcaja1;  
+      
+    // alert(cbcaja.value+' '+asignaciontrabajadorID.value+' '+fechainicio.value+' '+fechafin.value+' '+cbcaja1.value);
+	$.post('asignacion_caja_ope.php', 
+		{	cbcaja                      : cbcaja.value,
+                        asignaciontrabajadorID      : asignaciontrabajadorID.value,
+                       // asignaciontrabajador        : asignaciontrabajador.value,
+                        fechainicio                 : fechainicio.value,
+                        fechafin                     : fechafin.value,
+                        cbcaja1                     : cbcaja1.value
+
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro fue realizado correctamente');
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
