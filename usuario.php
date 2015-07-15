@@ -24,7 +24,7 @@ require_once("conexion.php");
 <script src="js/bootstrap.min.js"></script>
 
 </head>
-<body>    
+<body>
 <table class="table" id="cuerpo1">
 <tr>
 
@@ -64,7 +64,7 @@ require_once("conexion.php");
 			<li class="dropdown"> 
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Comprobante</a></li>              
+					<li><a href="#"  onclick="cargarformulario('contenido','reg_comprobante.php?id=<?php echo $_SESSION['id']; ?>')"style="cursor:pointer">Registro de Comprobante</a></li>              
 					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Personas</a></li> 
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Clientes</a></li>
 				</ul>
@@ -93,7 +93,10 @@ require_once("conexion.php");
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reportes <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Platos mas vendidos</a></li>    
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Ganancias</a></li>    
+                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Ganancias</a></li>   
+                                        <li><a href="#"  onclick="cargarformulario('contenido','reporte_bebidas.php');" style="cursor:pointer">Reporte de bebidas</a></li>
+
+                                        
 				</ul>
                         </li>
                         <?php } ?>

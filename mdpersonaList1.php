@@ -2,12 +2,12 @@
                 <table class="table-striped">
                         <tr>
                         <td colspan="3">
-                            <center><p class="form-title">LISTA DE EMPLEADOS</p><br/></center>
+                            <center><p class="form-title">LISTA DE CLIENTES</p><br/></center>
                             </td>
                         </tr>
                         <tr>
                         <th width="15%">Codigo</th>
-                            <th width="60%"><center>Empleado</center></th>
+                            <th width="60%"><center>Cliente</center></th>
                         </tr>
 <style> 
 a:hover{text-decoration:none;}
@@ -19,26 +19,29 @@ a{text-decoration:none;}
 	      $cnn=conectar();
                 $n = isset($_GET['n']) ? $_GET['n'] : '';
           if ($n!='') {
-             $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1 and empleado like '$n%' LIMIT 10",$cnn) 
+             $clavebuscadah=mysql_query("select * from v_cliente where cliente_estado=1 and cliente like '$n%'LIMIT 10",$cnn) 
                       or die("Problemas en el select:".mysql_error());}
           else {
-             $clavebuscadah=mysql_query("select CODIGO,EMPLEADO from v_empleado where estado=1 LIMIT 10",$cnn) 
+             $clavebuscadah=mysql_query("select * from v_cliente where cliente_estado=1 LIMIT 10",$cnn) 
                      or die("Problemas en el select:".mysql_error());  }
                
                 while($row = mysql_fetch_array($clavebuscadah))
                 {?>
                          <tr>
-                         <td> <h5><?php echo$row['CODIGO'];?> </h5></td>
-                            <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['CODIGO']; ?>,'<?php echo $row['EMPLEADO']; ?>');">
-				<h5><?php echo utf8_decode($row['EMPLEADO']); ?> </h5>
+                         <td> <h5><?php echo$row['cliente_id'];?> </h5></td>
+                            <td> <a href='#' data-dismiss="modal" onclick="select(<?php echo $row['cliente_id']; ?>,'<?php echo $row['Cliente']; ?>');">
+				<h5><?php echo utf8_decode($row['Cliente']);?></h5>
                                                            
                         </tr>
                    <?php  }?>
-         </table>
+                        
+                                             
+                     </table>
+
 <script>
 	function select(id, nombre) {
-		$('#txtPersonaID').val(id);
-		$('#txtPersona').val(nombre);
+		$('#txtcomprobanteclienteID').val(id);
+		$('#txtcomprobantecliente').val(nombre);
 		$('#modalwindow').fadeOut(200);
 	}
 </script>
