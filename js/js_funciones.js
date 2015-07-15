@@ -1,3 +1,13 @@
+
+function cargainicio(div,formulario)
+{
+	$("#"+div).load(formulario);
+}
+function pascid(a)
+{
+    //alert(a);
+    document.frm_nca.txtncid.value=a;
+}
 function up_detpp(a){
     //alert('a');
     var cant=document.frm_nca.txtncantidad;
@@ -552,7 +562,7 @@ function registromenu(){
 	var descripcion = document.frm_registromenu.txtdescripcion;
         var precio = document.frm_registromenu.txtpre;
         var categoria = document.frm_registromenu.txtCategoriaID;
-        alert(nombre.value);
+       // alert(categoria.value);
 	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
 	$.post('menu_registrar_ope.php', 
 		{	nombre		: nombre.value,		
@@ -561,7 +571,9 @@ function registromenu(){
                         categoria       : categoria.value      
 		},
 		function (data){
-			if(data=="SU REGISTRO FUE REALIZADO CORRECTAMENTE"){
+			if(data=="Correcto"){
+                            
+                            alert("Su plato comanda fue registrado correctamente");
 				$(location).attr('href','usuario.php');
 			}else{
 				alert(data);
@@ -572,7 +584,7 @@ function registromenu(){
 
 function eliminarusuario(usuario){
         //var usuario = document.frm_eliminarusuario.usuario;
-        alert(usuario);
+      //  alert(usuario);
 	//alert(pregunta.value+" "+respuesta.value+" "+empleado.value);
 	$.post('usuario_eliminar_ope.php', 
 		{	usuario		: usuario	     
@@ -742,6 +754,90 @@ function asignacion_caja(){
 		function (data){
 			if(data=="correcto"){
                             alert('Su registro fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+			}
+		}
+	);
+}
+function comprobantetotal()
+{
+    var caja=document.frm_comprobante.cbtipodocumento.value;
+    var monto=document.frm_comprobante.txtcomprobantemonto.value;
+    var descuento= document.frm_comprobante.txtcomprobantedescuento.value;
+    var delivery= document.frm_comprobante.txtcomprobantedeivery.value;  
+    //alert(delivery);
+    if (delivery=="") {
+           delivery=0;
+           
+    if(caja==1) {
+     //var monto=document.frm_comprobante.txtcomprobantemonto.valuetxtcomprobanteigv;
+     document.frm_comprobante.txtcomprobanteigv.value="0.00";  
+     
+    var resultado=monto-descuento; 
+    var total=parseInt(resultado) + parseInt(delivery);//txtcomprobantedeivery;
+    document.frm_comprobante.txtcomprobantetotal.value=total;
+    }else{
+     var resultado=monto-descuento;
+     var igv=(resultado*0.18).toFixed(2);
+     var total=parseInt(resultado) + parseInt(delivery)+ parseFloat(igv);
+     document.frm_comprobante.txtcomprobanteigv.value=igv;
+     document.frm_comprobante.txtcomprobantetotal.value=total;  
+    }
+    }else{
+        //alert(monto);
+    if(caja==1) {
+     //var monto=document.frm_comprobante.txtcomprobantemonto.valuetxtcomprobanteigv;
+     document.frm_comprobante.txtcomprobanteigv.value="0.00";  
+     
+    var resultado=monto-descuento; 
+    var total=parseInt(resultado) + parseInt(delivery);//txtcomprobantedeivery;
+    document.frm_comprobante.txtcomprobantetotal.value=total;
+    }else{
+     var resultado=monto-descuento;
+      var igv=(resultado*0.18).toFixed(2);
+      var total=parseInt(resultado) + parseInt(delivery)+ parseFloat(igv);
+     document.frm_comprobante.txtcomprobanteigv.value=igv;
+     document.frm_comprobante.txtcomprobantetotal.value=total;  
+    }   
+    }  
+}
+function regitro_comprobante(){
+       var comprobantenumero =document.frm_comprobante.txtcomprobantenumero.value;
+       var comprobantefecha  =document.frm_comprobante.txtcomprobantefecha.value;
+       var cbcaja    =document.frm_comprobante.cbcaja.value;
+       var comprobantemonto =document.frm_comprobante.txtcomprobantemonto.value;
+       var cbtipodocumento =document.frm_comprobante.cbtipodocumento.value;
+       var comprobanteclienteID =document.frm_comprobante.txtcomprobanteclienteID.value;
+       var comprobantepedido =document.frm_comprobante.txtcomprobantepedido.value;
+       var comprobantedescuento =document.frm_comprobante.txtcomprobantedescuento.value;
+       var comprobanteigv =document.frm_comprobante.txtcomprobanteigv.value;
+       var comprobantedelivery =document.frm_comprobante.txtcomprobantedeivery.value;
+       var comprobantetotal =document.frm_comprobante.txtcomprobantetotal.value;
+       var comprobantenumerocaja =document.frm_comprobante.txtcomprobantenumerocaja.value;
+       var descuento=parseFloat(comprobantemonto)- parseFloat(comprobantedescuento);
+
+      
+     //alert(descuento);
+	$.post('reg_comprobantepedido_ope.php', 
+		{	comprobantenumero      : comprobantenumero,
+                        comprobantefecha       : comprobantefecha.valueOf(),
+                        cbcaja                 : cbcaja,
+                        comprobantemonto       : comprobantemonto,
+                        cbtipodocumento        : cbtipodocumento,
+                        comprobanteclienteID   : comprobanteclienteID,
+                        comprobantepedido      : comprobantepedido,
+                        comprobantedescuento   : comprobantedescuento,
+                        comprobanteigv         : comprobanteigv.valueOf(),
+                        comprobantedelivery    : comprobantedelivery,
+                        comprobantetotal       : comprobantetotal,
+                        comprobantenumerocaja  : comprobantenumerocaja,
+                        descuento              : descuento
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su comprobante fue realizado correctamente');
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);
