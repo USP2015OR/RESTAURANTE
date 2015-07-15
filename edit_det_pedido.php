@@ -1,10 +1,10 @@
 <?php
-$usuario=$_GET['usuario'];
+$pedido=$_GET['pedido'];
 ?>
 <html>
     <head>
         <script type="text/javascript">
-        cargarformulario('detalle','det_pedido.php?usuario=<?php echo $usuario; ?>');
+        cargarformulario('detalle','det_pedidor.php?pedido=<?php echo $pedido; ?>');
         </script>
     </head>
     <body>
@@ -17,7 +17,7 @@ $usuario=$_GET['usuario'];
                     </center>
                 </td>
                 </tr>
-                <tr>
+                <tr hidden>
                 <td>
                     <h5><label for="txtmesa"><b>Mesa: </b></label></h5>
                 </td>
@@ -44,7 +44,7 @@ $usuario=$_GET['usuario'];
                     <h5><label for="txtcantidad"><b>Cantidad: </b></label></h5>
                 </td>
                 <td colspan="2">
-                    <input min='1' type="number" required="required" name="txtcantidad"  id="txtcantidad" class="form-control" value="1" onkeyup="caltotal()" onchange="caltotal()" onkeypress="return soloNumeros(event)">
+                    <input type="number" required="required" name="txtcantidad"  id="txtcantidad" class="form-control" value="1" onkeyup="caltotal()" onchange="caltotal()" min='1' onkeypress="return soloNumeros(event)">
                 </td>
                 </tr>
                 <tr>
@@ -66,7 +66,7 @@ $usuario=$_GET['usuario'];
                 <tr>
                 <td colspan="3">
                     <center>
-                        <br><button type="button" onclick="agregar_detalle(<?php echo $usuario; ?>);" class="btn btn-success">Agregar</button>
+                        <br><button type="button" onclick="agregar_detallep(<?php echo $pedido; ?>);" class="btn btn-success">Agregar</button>
                     </center>
                 </td>
                 </tr>
@@ -178,7 +178,7 @@ $usuario=$_GET['usuario'];
                 <div id="detalle"></div>
             </td>
             </tr>
-            <tr>
+            <tr hidden>
             <td>
                 <center>
                     <br><button type="button" onclick="registrar_pedido(<?php echo $usuario; ?>);" class="btn btn-success">Registrar Pedido</button>

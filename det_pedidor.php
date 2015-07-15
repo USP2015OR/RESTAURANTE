@@ -2,11 +2,13 @@
 require_once("conexion.php");
 $cnn=conectar();
 $suma=0;
-$usuario=$_GET['usuario'];
+$pedido=$_GET['pedido'];
 //$nombre="";
-$query="SELECT `nombre`,`cantidad`, `precio`, `total`,id FROM `temp_detallepedido` where usuario=".$usuario."";
+$query="SELECT dp.`comanda_id`, dp.`pedido_id`, dp.`Cantidad`, dp.`PrecioUni`, dp.`PrecioTotal`, c.comanda_nombre
+FROM `detallepedido`  dp
+inner join comanda c on c.comanda_id=dp.comanda_id
+WHERE `pedido_id`=".$pedido."";
 $rs=mysql_query($query,$cnn);
-//$reg = mysql_fetch_array($rs);
 $nfilas = mysql_num_rows ($rs);?>
 <br>
 <center>
@@ -41,10 +43,7 @@ $nfilas = mysql_num_rows ($rs);?>
             {?>
         <tr>
         <td>
-            <?php echo $reg[0]; ?>
-        </td>
-        <td>
-            <center><?php echo $reg[1]; ?></center>
+            <?php echo $reg[5]; ?>
         </td>
         <td>
             <center><?php echo $reg[2]; ?></center>
@@ -52,16 +51,19 @@ $nfilas = mysql_num_rows ($rs);?>
         <td>
             <center><?php echo $reg[3]; ?></center>
         </td>
+        <td>
+            <center><?php echo $reg[4]; ?></center>
+        </td>
         <td width="100">
-            <center><a href="#" onclick="pascid(<?php echo $reg[4]; ?>)" data-toggle="modal" data-target="#updetalle">Editar</a>
+            <center><a href="#" onclick="pascid(<?php echo $reg[0]; ?>)" data-toggle="modal" data-target="#updetalle">Editar</a>
             </center>
         </td>
         <td width="100">
-            <center><a href="#" onclick="elim_detp(<?php echo $reg[4] ?>,<?php echo $usuario; ?>)">Eliminar</a></center>
+            <center><a href="#" onclick="elim_detpp(<?php echo $reg[0] ?>,<?php echo $pedido; ?>)">Eliminar</a></center>
         </td>
         </tr>
         <?PHP 
-            $suma=$suma+$reg[3];
+            $suma=$suma+$reg[4];
             } ?>
         <tr>
         <td colspan="3">
@@ -79,6 +81,10 @@ $nfilas = mysql_num_rows ($rs);?>
         </tr>
     </table>
 </center>
+<?php
+$sql="UPDATE `pedido` SET `pedido_montot`=".$suma." WHERE `pedido_id`=".$pedido."";
+mysql_query($sql,$cnn);
+?>
 <div class="modal fade" id="updetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -94,7 +100,7 @@ $nfilas = mysql_num_rows ($rs);?>
                                         <input type="text" name="txtncantidad" maxlength="50"  id="txtncantidad" class="form-control" placeholder="Cantidad" onkeypress="return soloNumeros(event)">
                                     </td>
                                     <td>
-                                        <button type="button" onclick="up_detp(<?php echo $usuario; ?>)" class="btn btn-success" data-dismiss="modal" >Guardar</button>
+                                        <button type="button" onclick="up_detpp(<?php echo $pedido; ?>)" class="btn btn-success" data-dismiss="modal" >Guardar</button>
                                     </td>
                                     </tr>
                                     <tr>

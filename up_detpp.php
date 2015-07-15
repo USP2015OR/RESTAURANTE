@@ -2,9 +2,9 @@
 require_once("conexion.php");
 $cnn=conectar();
 $id=$_POST['id'];
-$usuario=$_POST['usuario'];
+$pedido=$_POST['pedido'];
 $cant=$_POST['cant'];
-$sql="UPDATE `temp_detallepedido` SET `cantidad`=".$cant.",`total`=".$cant."*`precio`  WHERE `id`=".$id." and `usuario`=".$usuario."";
+$sql="UPDATE `detallepedido` SET `Cantidad`=".$cant.",`PrecioTotal`=".$cant."*`PrecioUni` WHERE `comanda_id`=".$id." and `pedido_id`=".$pedido."";
 if(mysql_query($sql,$cnn)){
     echo "correcto";
 }else{

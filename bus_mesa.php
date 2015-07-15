@@ -4,7 +4,7 @@ $cnn=conectar();
 $niv=$_GET['niv'];
 $zon=$_GET['zon'];
 //$nombre="";
-$query="SELECT m.`mesa_numero`,m.`mesa_capacidad`,m.`mesa_id` FROM `mesa` m inner join zona z on z.zona_id=m.zona_id WHERE z.zona_nivel=".$niv." and z.zona_descripcion='".$zon."' limit 10";
+$query="SELECT m.`mesa_numero`,m.`mesa_capacidad`,m.`mesa_id` FROM `mesa` m inner join zona z on z.zona_id=m.zona_id WHERE z.zona_nivel=".$niv." and z.zona_descripcion='".$zon."' and m.mesa_estado=1 limit 10";
 $rs=mysql_query($query,$cnn);
 //$reg = mysql_fetch_array($rs);
 $nfilas = mysql_num_rows ($rs);?>

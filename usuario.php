@@ -111,8 +111,8 @@ require_once("conexion.php");
                                     <li class="dropdown"> 
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pedidos<b class="caret"></b></a>
                                             <ul class="dropdown-menu">					
-                                             <li><a href="#" onclick="cargarformulario('contenido','reg_pedido.php?usuario=<?php echo $_SESSION['usuario']; ?>');" style="cursor:pointer">Registro</a></li>	             
-                                            <li><a href="#" onclick="cargarformulario('contenido','');" style="cursor:pointer">Listar</a></li>
+                                             <li><a href="#" onclick="cargarformulario('contenido','reg_pedido.php?usuario=<?php echo $_SESSION['id']; ?>');limpiar_dt(<?php echo $_SESSION['id']; ?>);" style="cursor:pointer">Registro</a></li>	             
+                                            <li><a href="#" onclick="cargarformulario('contenido','list_pedidos.php?usuario=<?php echo $_SESSION['id']; ?>');" style="cursor:pointer">Listar</a></li>
                                     </ul>
                                     </li>
                        <?php } ?>

@@ -2,8 +2,8 @@
 require_once("conexion.php");
 $cnn=conectar();
 $id=$_POST['id'];
-$usuario=$_POST['usuario'];
-$sql="DELETE FROM `temp_detallepedido` WHERE `id`=".$id." and `usuario`=".$usuario."";
+$pedido=$_POST['pedido'];
+$sql="DELETE FROM `detallepedido` WHERE `comanda_id`=".$id." and `pedido_id`=".$pedido."";
 if(mysql_query($sql,$cnn)){
     echo "correcto";
 }else{
