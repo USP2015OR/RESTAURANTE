@@ -1,3 +1,103 @@
+function up_detpp(a){
+    //alert('a');
+    var cant=document.frm_nca.txtncantidad;
+    //alert('a');
+    var id=document.frm_nca.txtncid;
+    //alert(cant+' '+id);
+    if(cant.value != 0 && cant.value !== ""){
+    $.post('up_detpp.php', 
+		{	id	: id.value,
+                        cant    : cant.value,
+                        pedido  : a
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Modificado');
+                                cargarformulario('detalle','det_pedidor.php?pedido='+a);
+			}else{
+				alert(data);
+			}
+		}
+	);}
+        else{
+            alert('Ingrese cantidad válida');
+        }
+}
+function elim_detpp(a,b){
+    //alert(a);
+    $.post('elim_detpp.php', 
+		{	id	: a,
+                        pedido  : b
+		},
+		function (data){
+			if(data=="correcto"){
+                                cargarformulario('detalle','det_pedidor.php?pedido='+b);
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function agregar_detallep(a){
+	var id = document.frm_regpedido.txtcomandaid;
+        var cant = document.frm_regpedido.txtcantidad;
+        var pre = document.frm_regpedido.txtprecio;
+        var tot = document.frm_regpedido.txttotal;
+        var nom = document.frm_regpedido.txtcomanda;
+        if(id.value !== ""){
+        if(cant.value != 0 && cant.value !== ""){
+	$.post('agre_detallep.php', 
+		{	id	: id.value,		
+			cant    : cant.value,
+                        pre     : pre.value,
+                        tot     : tot.value,
+                        nom     : nom.value,
+                        pedido  : a
+		},
+		function (data){
+			if(data=="correcto"){
+                                document.frm_regpedido.txtcomandaid.value="";
+                                document.frm_regpedido.txtcantidad.value="1";
+                                document.frm_regpedido.txtprecio.value="0";
+                                document.frm_regpedido.txttotal.value="0";
+                                document.frm_regpedido.txtcomanda.value="";
+                                cargarformulario('detalle','det_pedidor.php?pedido='+a+'');
+			}else{
+				alert(data);
+			}
+		}
+	);}
+        else{
+            alert ('Ingrese cantidad');
+        }}
+    else{
+        alert('Seleccione un platillo');
+    }
+}
+function elim_ped(a,b)
+{
+    $.post('elim_pedido.php', 
+		{	id     : a
+		},
+		function (data){
+			if(data=="correcto"){
+                                cargarformulario('contenido','list_pedidos.php?usuario='+b);
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function limpiar_dt(a)
+{
+    $.post('limpiar_dt_ope.php', 
+		{	usuario     : a
+		},
+		function (data){
+			
+		}
+	);
+}
 function soloNumeros(e) 
 { 
     var key = window.Event ? e.which : e.keyCode 
@@ -299,6 +399,7 @@ function uprespuesta(id)
         var passnueva1 = document.frm_campreg.txtrespuestan1;
         var passnueva2 = document.frm_campreg.txtrespuestan2;
       //  alert(passnueva1.value +" "+passnueva2.value+" "+id);
+      if(passvieja.value !== "" && passnueva1.value !== "" && passnueva2.value !== ""){
         if(passnueva1.value==passnueva2.value)
         {
             $.post('camres_ope.php', 
@@ -322,6 +423,8 @@ function uprespuesta(id)
         }else
         {
             alert("Constraseñas nuevas no coinciden");
+        }}else{
+        alert('Complete todos los campos');
         }
 }
 function upcontrasena(id)
@@ -330,6 +433,7 @@ function upcontrasena(id)
 	var passnueva1 = document.getElementById("txtpassnueva1");
         var passnueva2 = document.frm_campass.txtpassnueva2;
         //alert(passnueva1.value +" "+passnueva2.value+" "+id);
+        if(passvieja.value !== "" && passnueva1.value !== "" && passnueva2.value !== ""){
         if(passnueva1.value==passnueva2.value)
         {
             $.post('campass_ope.php', 
@@ -353,12 +457,15 @@ function upcontrasena(id)
         }else
         {
             alert("Constraseñas nuevas no coinciden");
+        }}else{
+        alert('Complete todos los campos');
         }
 }
 function login(){
 	var usuario = document.frm_login.txtusuario;
 	var clave = document.frm_login.txtclave;
 	//alert(usuario.value+" "+clave.value);
+        if(usuario.value !== "" && clave.value !== ""){
 	$.post('login_ope.php', 
 		{	usuario		: usuario.value,		
 			clave 		: clave.value			
@@ -370,7 +477,9 @@ function login(){
 				alert(data);
 			}
 		}
-	);
+	);}else{
+            alert('Complete los dos campos');
+        }
 }
 function prg_sec(){
 	var usuario = document.frm_re.txtusuario;
