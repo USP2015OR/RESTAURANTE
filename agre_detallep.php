@@ -7,7 +7,7 @@ $pre=$_POST['pre'];
 $tot=$_POST['tot'];
 $nom=$_POST['nom'];
 $pedido=$_POST['pedido'];
-$sql="SELECT * FROM `detallepedido` WHERE `pedido_id`=".$pedido." and `comanda_id`=".$id."";
+$sql="SELECT * FROM `v_detallepedido` WHERE `pedido_id`=".$pedido." and `comanda_id`=".$id."";
 $rs=mysql_query($sql,$cnn);
 $n=is_resource($rs)?mysql_num_rows($rs):0;
 if($n>0)
