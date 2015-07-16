@@ -43,7 +43,7 @@ require_once("conexion.php");
 			<span class="icon-bar"></span> 
 			<span class="icon-bar"></span> 
 		</button>
-		<a class="navbar-brand" href="usuario.php">Inicio</a>
+            <a class="navbar-brand" href="#" onclick="cargarformulario('contenido','inicio.php')">Inicio</a>
 	</div>
 	
 	<div class="navbar-collapse collapse">
@@ -92,9 +92,9 @@ require_once("conexion.php");
                         <li class="dropdown"> 
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reportes <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Platos mas vendidos</a></li>    
+					<li><a data-toggle="modal"  onclick="cargarformulario('contenido','reporte_pmv.php');" style="cursor:pointer">Reporte de Platos mas vendidos</a></li>    
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Ganancias</a></li>   
-                                        <li><a href="#"  onclick="cargarformulario('contenido','reporte_bebidas.php');" style="cursor:pointer">Reporte de bebidas</a></li>
+                                        <li><a href="#"  onclick="cargarformulario('contenido','reporte_comandas.php');" style="cursor:pointer">Reporte de Comandas</a></li>
 
                                         
 				</ul>
@@ -115,6 +115,9 @@ require_once("conexion.php");
                                             <li><a href="#" onclick="cargarformulario('contenido','list_pedidos.php?usuario=<?php echo $_SESSION['id']; ?>');" style="cursor:pointer">Listar</a></li>
                                     </ul>
                                     </li>
+                                    <li class="dropdown"> 
+				<a href="#" onclick="cargarformulario('contenido','lista_mesas.php');" style="cursor:pointer"> Lista de mesas</a><b class="caret"></b>
+			</li>
                        <?php } ?>
 
 			<!--<?php if($_SESSION['tipousuario'] == '3') {?>
@@ -156,7 +159,84 @@ require_once("conexion.php");
 </div>
   <div class="panel-body">
 <div id="contenido">
-            
+            <div id="inicio1" class="panel" style="width: 60%;margin-left: auto; margin-right: auto;">
+
+		 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img1.jpg" alt="First slide">
+           <div class="container">
+            <div class="carousel-caption">
+             <!-- <h1>Example headline.</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>-->
+            </div>
+          </div>
+        </div>
+        <div class="item" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img2.jpg" alt="Second slide">
+         <div class="container">
+            <div class="carousel-caption">
+               <!-- <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
+            </div>
+          </div>
+        </div>
+        <div class="item" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img3.jpg"  alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+               <!--<h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
+            </div>
+          </div> 
+        </div>
+          <div class="item" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img4.jpg"  alt="Fourth slide">
+          <div class="container">
+            <div class="carousel-caption">
+               <!--<h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
+            </div>
+          </div> 
+        </div>
+          <div class="item" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img5.jpg"  alt="Fifth slide">
+          <div class="container">
+            <div class="carousel-caption">
+               <!--<h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
+            </div>
+          </div> 
+        </div>
+          <div class="item" style="margin-left: auto; margin-right: auto;">
+          <img src="imagenes/img6.jpg"  alt="Sixth slide">
+          <div class="container">
+            <div class="carousel-caption">
+               <!--<h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
+            </div>
+          </div> 
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</div>
 </div>
   </div>
 </div>
