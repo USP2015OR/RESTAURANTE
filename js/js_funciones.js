@@ -1,4 +1,76 @@
+function edit_pre_com(){
+    var pre = document.frm_pre.txtprecio;
+    var id = document.frm_pre.txtidcom2;
+    //alert(id+' '+nom);
+    if(pre.value !== ""){
+    $.post('up_pre_com.php', 
+		{	id	: id.value,
+                        pre     : pre.value
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Modificado');
+                            busca_comanda2();
+			}else{
+				alert(data);
+			}
+		}
+	);}
+        else{
+            alert('Ingrese cantidad válida');
+        }
+}
+function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = "8-37-39-46";
 
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+function pasidcom(a){
+    //alert(a);
+    document.frm_re.txtidcom.value=a;
+    document.frm_pre.txtidcom2.value=a;
+}
+function edit_nom_com(){
+    var nom = document.frm_re.txtnombre;
+    var id = document.frm_re.txtidcom;
+    //alert(id+' '+nom);
+    if(nom.value !== ""){
+    $.post('up_nom_com.php', 
+		{	id	: id.value,
+                        nom     : nom.value
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Modificado');
+                            busca_comanda2();
+			}else{
+				alert(data);
+			}
+		}
+	);}
+        else{
+            alert('Ingrese cantidad válida');
+        }
+}
+function busca_comanda2(){
+	var nombre = document.frm_re.txtbusc;
+        var cat = document.frm_re.cbocategoria;
+        
+	cargarformulario('buscomanda','rep_com.php?nombre='+nombre.value+'&cat='+cat.value);
+}
 function cargainicio(div,formulario)
 {
 	$("#"+div).load(formulario);
@@ -23,7 +95,7 @@ function up_detpp(a){
 		function (data){
 			if(data=="correcto"){
                             alert('Modificado');
-                                cargarformulario('detalle','det_pedidor.php?pedido='+a);
+                            cargarformulario('detalle','det_pedidor.php?pedido='+a);
 			}else{
 				alert(data);
 			}

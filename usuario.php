@@ -94,7 +94,7 @@ require_once("conexion.php");
 				<ul class="dropdown-menu">					
 					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Platos mas vendidos</a></li>    
                                         <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Ganancias</a></li>   
-                                        <li><a href="#"  onclick="cargarformulario('contenido','reporte_bebidas.php');" style="cursor:pointer">Reporte de bebidas</a></li>
+                                        <li><a href="#"  onclick="cargarformulario('contenido','reporte_comandas.php');" style="cursor:pointer">Reporte de Comandas</a></li>
 
                                         
 				</ul>
