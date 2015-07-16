@@ -1,7 +1,7 @@
 <?php
  require_once("conexion.php");
 	      $cnn=conectar();
-                $clavebuscadah=mysql_query("SELECT caja.caja_id,caja.caja_numero FROM `movimiento` inner join caja on caja.caja_id=movimiento.caja_id where `movimiento_fecha`=curdate() and `movimiento_tipo`=1",$cnn) or
+                $clavebuscadah=mysql_query("SELECT caja.caja_id,caja.caja_numero FROM `caja` where caja_estado=1",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 //$row = mysql_fetch_array($clavebuscadah);
                 date_default_timezone_set('America/Lima'); 

@@ -25,6 +25,13 @@ function rep_pmv(){
     //alert(año.value+''+mes.value+''+dia.value);
     cargarformulario('buscomanda','rep_pmv.php?año='+año.value+'&mes='+mes.value+'&dia='+dia.value);
 }
+function rep_ganancia(){
+    var año = document.frm_re.txtaño;
+    var mes = document.frm_re.cbomes;
+    var dia = document.frm_re.txtdia;
+    //alert(año.value+''+mes.value+''+dia.value);
+    cargarformulario('buscomanda','rep_ganancia.php?año='+año.value+'&mes='+mes.value+'&dia='+dia.value);
+}
 function edit_pre_com(){
     var pre = document.frm_pre.txtprecio;
     var id = document.frm_pre.txtidcom2;
@@ -937,6 +944,28 @@ function regitro_comprobante(){
 		function (data){
 			if(data=="Correcto"){
                             alert('Su comprobante fue realizado correctamente');
+				$(location).attr('href','usuario.php');
+			}else{
+                            alert(data);
+			}
+		}
+	);
+}
+
+function reg_cliente(){
+      var nombre= document.frm_regcliente.txtid.value;
+      var ruc= document.frm_regcliente.txtruc.value;
+      var rs= document.frm_regcliente.rs.value;
+     
+	$.post('reg_cliente_ope.php', 
+		{	nombre     : nombre,
+                        ruc        : ruc,
+                        rs         : rs
+                        
+		},
+		function (data){
+			if(data=="correcto"){
+                            alert('Su registro fue realizado correctamente');
 				$(location).attr('href','usuario.php');
 			}else{
                             alert(data);

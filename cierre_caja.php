@@ -15,7 +15,7 @@
 	   $("#cbcaja").change(function () {
 	      $("#cbcaja option:selected").each(function () {
 	        elegido=$(this).val();
-               alert(elegido);
+               //alert(elegido);
 	        $.post("montoini.php", { elegido: elegido }, function(data){
 	        $("#montoini").html(data);
                 $("#montorecaudado").html(data);

@@ -52,7 +52,7 @@ require_once("conexion.php");
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Nosotros <b class="caret"></b></a>
 				<ul class="dropdown-menu">
                                         <li><a href="#"  onclick="cargarformulario('contenido','reseniahistorica.php');" style="cursor:pointer">Reseña Histórica</a></li>
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Organización</a></li>
+                                       
 					<li><a href="#" onclick="cargarformulario('contenido','vision.php')" style="cursor:pointer">Vision</a></li>              
 					<li><a href="#" onclick="cargarformulario('contenido','mision.php')" style="cursor:pointer">Mision</a></li> 	
 					
@@ -65,8 +65,8 @@ require_once("conexion.php");
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registros <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a href="#"  onclick="cargarformulario('contenido','reg_comprobante.php?id=<?php echo $_SESSION['id']; ?>')"style="cursor:pointer">Registro de Comprobante</a></li>              
-					<li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Personas</a></li> 
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Registro de Clientes</a></li>
+					<li><a data-toggle="modal"  onclick="cargarformulario('contenido','reg_persona.php')" style="cursor:pointer">Registro de Personas</a></li> 
+                                        <li><a data-toggle="modal"  onclick="cargarformulario('contenido','reg_cliente.php')" style="cursor:pointer">Registro de Clientes</a></li>
 				</ul>
 			</li>
 	            <?php } ?>
@@ -93,7 +93,7 @@ require_once("conexion.php");
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reportes <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a data-toggle="modal"  onclick="cargarformulario('contenido','reporte_pmv.php');" style="cursor:pointer">Reporte de Platos mas vendidos</a></li>    
-                                        <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Reporte de Ganancias</a></li>   
+                                        <li><a data-toggle="modal"  onclick="cargarformulario('contenido','reporte_ganancia.php');" style="cursor:pointer">Reporte de Ganancias</a></li>   
                                         <li><a href="#"  onclick="cargarformulario('contenido','reporte_comandas.php');" style="cursor:pointer">Reporte de Comandas</a></li>
 
                                         
@@ -139,7 +139,7 @@ require_once("conexion.php");
                                              <li><a href="#" onclick="cargarformulario('contenido','usuario_registrar.php');" style="cursor:pointer">Registro de usuario</a></li>	             
                                             <li><a href="#" onclick="cargarformulario('contenido','usuario_activar.php');" style="cursor:pointer">Activar cuenta de usuario</a></li> 
                                             <li><a href="#" onclick="cargarformulario('contenido','usuario_eliminar.php');" style="cursor:pointer">Dar de baja un usuario</a></li>
-                                            <li><a data-toggle="modal"  onclick="" style="cursor:pointer">Visualizar los usuario</a></li>
+                                       
                                     </ul>
                             </li>
                           <?php } ?>
