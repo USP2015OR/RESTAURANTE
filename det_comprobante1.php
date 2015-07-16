@@ -27,12 +27,11 @@
                 $row = mysql_fetch_array($combog);
               
               
-                $clavebuscadah=mysql_query("SELECT c.comanda_nombre,dt.`Cantidad`,dt.`PrecioUni`,dt.`PrecioTotal` FROM `detallepedido` dt inner join comanda c on c.comanda_id=dt.comanda_id WHERE dt.`pedido_id`= $row[0]
-",$cnn) or
+                $clavebuscadah=mysql_query("SELECT `Cantidad`,`Cantidad`,`PrecioUni`,`PrecioTotal` FROM `detallepedido` WHERE `pedido_id`= $row[0]",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 while($row = mysql_fetch_array($clavebuscadah)){
                  
-              echo $row[0]; 
+              echo $row[1]; 
               echo '<br>';
              
         

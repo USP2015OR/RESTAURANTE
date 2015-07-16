@@ -8,12 +8,11 @@ $usuario=$_GET['id'];
                 $clavebuscadah=mysql_query("SELECT `pedido_id`,pedido.`mesa_id`,`empleado_id`,`pedido_montot`,`pedido_estado`,`ubicacion_id`,`pedido_recargo` FROM `pedido` inner join mesa on mesa.mesa_id= pedido.mesa_id where `pedido_estado`=1",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 
-                 
                 $clavebuscadah1=mysql_query("SELECT max(comprobante_id) FROM `comprobante`",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 $row = mysql_fetch_array($clavebuscadah1);
                 
-                 $clavebuscadah2=mysql_query("SELECT `empleado_id` FROM `usuario` WHERE `usuario_id`=$usuario",$cnn) or
+                $clavebuscadah2=mysql_query("SELECT `empleado_id` FROM `usuario` WHERE `usuario_id`=$usuario",$cnn) or
                 die("Problemas en el select:".mysql_error());
                 $row1 = mysql_fetch_array($clavebuscadah2);
                 
@@ -26,7 +25,7 @@ $usuario=$_GET['id'];
 <html>
     <head>
         <script type="text/javascript">
-        cargarformulario('detalle','det_comprobante.php');
+      //  cargarformulario('detalle','det_comprobante.php');
         </script>
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
         <title>REGISTRO DE COMPROBANTE</title>
@@ -44,6 +43,64 @@ $usuario=$_GET['id'];
 	   });    
 	});
 </script>
+ 
+<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function() {
+	  // Parametros para el combo
+	   $("#cbcaja").change(function () {
+	      $("#cbcaja option:selected").each(function () {
+	        elegido=$(this).val();
+               //alert(elegido);
+	        $.post("det_comprobante.php", { elegido: elegido }, function(data){
+	        $("#detalle").html(data);
+	      });     
+	     });
+	   });    
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function() {
+	  // Parametros para el combo
+	   $("#cbcaja").change(function () {
+	      $("#cbcaja option:selected").each(function () {
+	        elegido=$(this).val();
+               //alert(elegido);
+	        $.post("det_comprobante1.php", { elegido: elegido }, function(data){
+	        $("#detalle1").html(data);
+	      });     
+	     });
+	   });    
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function() {
+	  // Parametros para el combo
+	   $("#cbcaja").change(function () {
+	      $("#cbcaja option:selected").each(function () {
+	        elegido=$(this).val();
+               //alert(elegido);
+	        $.post("det_comprobante2.php", { elegido: elegido }, function(data){
+	        $("#detalle2").html(data);
+	      });     
+	     });
+	   });    
+	});
+</script>
+        <script type="text/javascript" charset="utf-8">
+	  $(document).ready(function() {
+	  // Parametros para el combo
+	   $("#cbcaja").change(function () {
+	      $("#cbcaja option:selected").each(function () {
+	        elegido=$(this).val();
+               //alert(elegido);
+	        $.post("det_comprobante3.php", { elegido: elegido }, function(data){
+	        $("#detalle3").html(data);
+	      });     
+	     });
+	   });    
+	});
+</script>
+        
 <script type="text/javascript" charset="utf-8">
 	  $(document).ready(function() {
 	  // Parametros para el combo
@@ -58,6 +115,7 @@ $usuario=$_GET['id'];
 	   });    
 	});
 </script>
+
 <script type="text/javascript" charset="utf-8">
 	  $(document).ready(function() {
 	  // Parametros para el combo
@@ -183,40 +241,124 @@ $usuario=$_GET['id'];
 		     <td><input type='text' name='txtcomprobanteclienteID' id='txtcomprobanteclienteID' maxlength='10' placeholder='Ingrese personalID'/></td>
 	             </tr>
                        <tr>
+                            <td>
+                                <h4>Cliente:</h4>
+                            </td>
+                            <td colspan="2">
+                                <input type="text" readonly required="required" id="txtcomprobantecliente" name="txtcomprobantecliente" class="form-control"  placeholder="Cliente" >
+                            </td>
+                            <td>
+                                <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#selecliente"  >Buscar</button>
+                            </td>
+                       </tr>
+                       
+                       <tr>
                            <td>
                                 
                             </td>
                             <td>
-                                <h4>Cliente:</h4>
+                                <h4>Recargo por delivery:</h4>
+                            </td>
                             </td>
                             <td>
-                                <input type="text" readonly required="required" id="txtcomprobantecliente" name="txtcomprobantecliente" class="form-control"  placeholder="Cliente" >
-                            </td>
-                            <td>
-                                <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#selecliente" >Buscar</button>
+                                <input type="text"  name="txtcomprobantedeivery" class="form-control"  value="0.00"  onkeyup="comprobantetotal();">
                             </td>
                        </tr>
-                        <tr>
-                            <td>
-                               
+                    </table>
+                 
+              <br>
+                    <table class="table">
+                    
+                            <tr>
+                            <td class="active" colspan="6">
+                                <center><font  size="3"><b>DETALLE DEL PEDIDO</b></font></center><br>
                             </td>
-                            <td>
-                                <h4>Monto:</h4>
+                            </tr>
+                            
+                            <tr class="success">
+                                
+                            <td width="300">
+                                <font color="#2E2EFE" size="3"><b>NOMBRE</b></font>
                             </td>
-                              <td>
+                            <td width="150">
+                                <center><font color="#2E2EFE" size="3"><b>CANTIDAD</b></font></center>
+                            </td>
+                            <td width="150">
+                                <center><font color="#2E2EFE" size="3"><b>PRECIO</b></font></center>
+                            </td>
+                            <td width="150">
+                                <center><font color="#2E2EFE" size="3"><b>TOTAL</b></font></center>
+                            </td>
+                            </tr>
+                            <br>
+                       <tr>
+                       <td>
                                 <div class="control-group">
                                  <div class="controls">
-                                     <di id="monto">
-                                        
-                                          <input type="text" readonly required="required" name="txtcomprobantemonto" class="form-control"  placeholder="Monto " >
-                                        
+                                     <di id="detalle">
                                      </di>
+
+                                 </div>
+                               </div>
+                          </td>
+                          <td align="center">
+                                <div class="control-group">
+                                 <div class="controls">
+                                     <di id="detalle1">
+                                     </di>
+
+                                 </div>
+                               </div>
+                          </td>
+                           <td align="center">
+                                <div class="control-group">
+                                 <div class="controls">
+                                     <di id="detalle2">
+                                     </di>
+
+                                 </div>
+                               </div>
+                          </td>
+                            <td align="center">
+                                <div class="control-group">
+                                 <div class="controls">
+                                     <di id="detalle3">
+                                     </di>
+
+                                 </div>
+                               </div>
+                          </td>
+                       </tr>
+                       </table>
+              <table align="right">
+                    <td>
+                               
+                </td>
+                <td></td>
+                       <td></td>
+                <td>
+                               
+                </td>
+                <td>
+                <h4>Monto:</h4>
+                </td>
+                <td>
+                <div class="control-group">
+                    <div class="controls">
+                          <di id="monto">
+                           <input type="text" readonly required="required" name="txtcomprobantemonto" class="form-control"  placeholder="Monto " >
+                                </di>
                                  </div>
                                </div>
                             </td> 
                             
-                       </tr>
-                       <tr>
+        </tr>
+         <tr>
+             <td></td>
+                       <td></td>
+             <td>
+                                
+                            </td>
                            <td>
                                 
                             </td>
@@ -232,25 +374,23 @@ $usuario=$_GET['id'];
                                 
                             </td>
                             <td>
+                                
+                            </td>
+                            <td></td>
+                       <td></td>
+                            <td>
                                 <h4>IGV:</h4>
                             </td>
                             <td>
                                 <input type="text" readonly required="required" name="txtcomprobanteigv" class="form-control" value="0.00" placeholder="igv" >
                             </td>
                        </tr>
-                       <tr>
-                           <td>
+                         <tr>
+                             <td></td>
+                       <td></td>
+                             <td>
                                 
                             </td>
-                            <td>
-                                <h4>Recargo por delivery:</h4>
-                            </td>
-                            </td>
-                            <td>
-                                <input type="text"  name="txtcomprobantedeivery" class="form-control"  value="0.00"  onkeyup="comprobantetotal();">
-                            </td>
-                       </tr>
-                       <tr>
                            <td>
                                 
                             </td>
@@ -261,18 +401,20 @@ $usuario=$_GET['id'];
                                 <input type="text" readonly required="required" name="txtcomprobantetotal" class="form-control"   placeholder="Monto Total" >
                             </td>
                        </tr>
-                    
-                       <td colspan="4">
-                        <center>
-                            <br><button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
-                            
-                        </center>
+                      
+                       <tr align="right">
+                        <td>
+                            <button type="button" onclick="validar();" class="btn btn-success">REGISTRAR</button>
                        </td>
-                    </table>
+                       <td></td>
+
+                       </tr>
+                  </table>
+              
                 </form>
             </center>
     
-          <div class="modal fade" id="selecliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal fade" id="selecliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -304,25 +446,14 @@ $usuario=$_GET['id'];
 		
 	      </div>
            </div>
-        </div>
+        </div>      
+  <center>
         
-           <center>
-        <table>
-            <tr>
-            <td>
                 <div id="detalle"></div>
-            </td>
-            </tr>
-            <tr>
-            <td>
-                <center>
-                    <br><button type="button" onclick="registrar_pedido(<?php echo $usuario; ?>);" class="btn btn-success">Registrar Pedido</button>
-                </center>
-            </td>
-            </tr>
-        </table>
+         
         </center>
-        
+      
+      
     </body>
 </html>
 <script>

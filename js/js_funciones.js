@@ -836,7 +836,7 @@ function regitro_comprobante(){
                         descuento              : descuento
 		},
 		function (data){
-			if(data=="correcto"){
+			if(data=="Correcto"){
                             alert('Su comprobante fue realizado correctamente');
 				$(location).attr('href','usuario.php');
 			}else{
@@ -845,5 +845,6 @@ function regitro_comprobante(){
 		}
 	);
 }
+
 
 
