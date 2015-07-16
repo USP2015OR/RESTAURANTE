@@ -205,7 +205,7 @@ $_SESSION['intentos']=0;
                             <center>
                         <table>
                             <tr><td width="20%"></td>
-                            <td width="60%"><center><h4>Usuario</h4><input type="text"  id="txtusuario" class="form-control" onkeypress="prg_sec();" placeholder="Username"></center></td>
+                            <td width="60%"><center><h4>Usuario</h4><input type="text"  id="txtusuario" class="form-control" onkeyup="prg_sec();" placeholder="Username"></center></td>
                             <td width="20%"></td>
                             </tr>
                              <tr id="espaciolog">

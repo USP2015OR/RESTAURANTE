@@ -4,7 +4,7 @@
 	$cnn=conectar();
 	$usuario=$_POST['usuario'];
 	$clave=$_POST['clave'];
-	$query="select * from v_usuario_login where usuario='$usuario' and contrasena=md5('$clave')";
+	$query="select `u`.`usuario_nombre` AS `USUARIO`,`u`.`usuario_contrasena` AS `CONTRASENA`,`u`.`usuario_estado` AS `ESTADO`,`e`.`empleado_cargo` AS `CARGO`,concat(`p`.`persona_prinom`,' ',`p`.`persona_apepat`) AS `NOMBRE`,`u`.`usuario_id` AS `ID`,`u`.`usuario_respuesta` AS `RESPUESTA` from ((`restaurante`.`usuario` `u` join `restaurante`.`empleado` `e` on((`e`.`empleado_id` = `u`.`empleado_id`))) join `restaurante`.`persona` `p` on((`p`.`persona_id` = `e`.`persona_id`))) where `u`.`usuario_nombre`='$usuario' and `u`.`usuario_contrasena`=md5('$clave')";
 	$rs=mysql_query($query,$cnn);
 	$n=is_resource($rs)?mysql_num_rows($rs):0;
 	if($n>0){
