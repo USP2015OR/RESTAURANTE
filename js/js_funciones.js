@@ -1,3 +1,10 @@
+function rep_pmv(){
+    var año = document.frm_re.txtaño;
+    var mes = document.frm_re.cbomes;
+    var dia = document.frm_re.txtdia;
+    //alert(año.value+''+mes.value+''+dia.value);
+    cargarformulario('buscomanda','rep_pmv.php?año='+año.value+'&mes='+mes.value+'&dia='+dia.value);
+}
 function edit_pre_com(){
     var pre = document.frm_pre.txtprecio;
     var id = document.frm_pre.txtidcom2;
