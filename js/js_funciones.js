@@ -1,3 +1,23 @@
+function cam_estado(a,b){
+    $.post('cam_estado.php', 
+		{	est	: a,
+                        id      : b
+		},
+		function (data){
+			if(data=="correcto"){
+                            busca_mesa2();
+			}else{
+				alert(data);
+			}
+		}
+	);
+}
+function busca_mesa2(){
+	var niv = document.frm_me.cbonivel;
+        var zon = document.frm_me.cbozona;
+        
+	cargarformulario('buscamesa','busca_mesa.php?niv='+niv.value+'&zon='+zon.value);
+}
 function rep_pmv(){
     var año = document.frm_re.txtaño;
     var mes = document.frm_re.cbomes;

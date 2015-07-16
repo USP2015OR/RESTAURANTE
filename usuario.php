@@ -115,6 +115,9 @@ require_once("conexion.php");
                                             <li><a href="#" onclick="cargarformulario('contenido','list_pedidos.php?usuario=<?php echo $_SESSION['id']; ?>');" style="cursor:pointer">Listar</a></li>
                                     </ul>
                                     </li>
+                                    <li class="dropdown"> 
+				<a href="#" onclick="cargarformulario('contenido','lista_mesas.php');" style="cursor:pointer"> Lista de mesas</a><b class="caret"></b>
+			</li>
                        <?php } ?>
 
 			<!--<?php if($_SESSION['tipousuario'] == '3') {?>
